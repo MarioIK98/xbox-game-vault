@@ -75,9 +75,48 @@
 @media(max-width:730px){.price-explainer{grid-template-columns:1fr}.platform-links{grid-template-columns:repeat(2,minmax(0,1fr))}.platform-titles{grid-template-columns:1fr}.wishlist-dialog{padding:18px}.bottom-inner{align-items:center}}
 @media(max-width:415px){.platform-links{grid-template-columns:1fr 1fr}.platform-link{padding:13px}.hero-actions .btn{width:100%}.game-price{font-size:14px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* GAME VAULT · Partnerflächen V3 · keine automatischen Weiterleitungen */
+.partner-zone{padding-top:20px;scroll-margin-top:110px}
+.partner-intro{display:flex;gap:16px;align-items:center;justify-content:space-between;margin:-3px 0 19px}
+.partner-intro p{margin:0;max-width:760px;color:var(--muted);font-size:13px;line-height:1.65}
+.partner-info-pill{display:inline-flex;align-items:center;gap:7px;border:1px solid #77edce62;background:#153e4199;border-radius:100px;padding:9px 13px;font-size:11px;font-weight:850;color:#d0fff4;white-space:nowrap}
+.partner-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:15px;align-items:stretch}
+.partner-card{position:relative;min-width:0;min-height:325px;border:1px solid var(--line);border-radius:24px;padding:21px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 15px 34px #00000024}
+.partner-card *{min-width:0}
+.partner-reserved{grid-column:span 3;background:linear-gradient(145deg,#161d34,#121a2c 71%,#152437);border-style:dashed;border-color:#8ba6c16e}
+.partner-tagline{display:flex;justify-content:space-between;align-items:center;gap:9px}
+.partner-ad-label{color:#b0f3e5;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.partner-number{font-size:11px;color:#a3b9d0;font-weight:850;font-variant-numeric:tabular-nums}
+.partner-reserved-art{display:grid;place-items:center;margin:24px 0 16px;width:64px;height:64px;border:1px solid #a3c4e452;border-radius:17px;background:linear-gradient(145deg,#20334e,#192238);font-size:28px;color:#d6e8ff}
+.partner-card h3{font-size:20px;letter-spacing:-.02em;line-height:1.15;margin:7px 0 11px;overflow-wrap:anywhere}
+.partner-reserved p{color:#b1c6dc;font-size:13px;line-height:1.65;margin:0}
+.partner-status{margin-top:auto;display:flex;align-items:center;gap:8px;padding-top:17px;color:#b4cadf;font-size:11px;font-weight:700}
+.partner-status::before{content:"";width:8px;height:8px;border-radius:50%;background:#c4ad81;flex:none}
+.partner-corporate{grid-column:span 6;background:radial-gradient(circle at 96% 4%,#8fcafd4b,transparent 40%),linear-gradient(122deg,#2a2f70,#22527f 52%,#087d7b);border-color:#8ef4db82;padding:23px 25px 22px}
+.partner-corporate::before{content:"";position:absolute;right:-94px;bottom:-170px;width:350px;height:350px;border:1px solid #b4ffec40;box-shadow:0 0 0 42px #e2fff30b,0 0 0 84px #e2fff30a;border-radius:50%;pointer-events:none}
+.partner-corporate .partner-ad-label{color:#dcfff7}
+.partner-company-body{display:flex;align-items:flex-start;gap:18px;margin-top:35px;position:relative}
+.partner-logo{display:grid;place-items:center;flex:0 0 74px;width:74px;height:74px;border:2px solid #c5fbea;border-radius:22px;background:linear-gradient(150deg,#edffff28,#061a4050);box-shadow:0 14px 30px #0004;font-size:37px;font-weight:1000;letter-spacing:-.08em;color:#dcfff7}
+.partner-company-name{font-size:clamp(23px,2.7vw,32px)!important;margin:0 0 7px!important;line-height:1.07!important;color:#fff}
+.partner-company-tag{font-size:14px;color:#eafaff;font-weight:750;line-height:1.5;margin:0 0 5px}
+.partner-company-sub{font-size:12px;color:#d3f2f6;margin:0;line-height:1.5}
+.partner-business-bottom{position:relative;margin-top:auto;padding-top:15px;display:flex;justify-content:space-between;align-items:flex-end;gap:13px;flex-wrap:wrap}
+.partner-location{font-size:12px;color:#d3f6ef;font-weight:700;display:flex;gap:8px;align-items:center}
+.partner-details{min-width:200px;max-width:100%;position:relative;margin-top:14px}
+.partner-details summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:space-between;gap:15px;min-height:43px;border-radius:11px;padding:10px 13px;background:#062c3e;color:#e0fff6;border:1px solid #b4fff17a;font-size:12px;font-weight:900}
+.partner-details summary::-webkit-details-marker{display:none}
+.partner-details summary::after{content:"+";font-size:17px;font-weight:700}
+.partner-details[open] summary::after{content:"−"}
+.partner-details summary:focus-visible{outline:3px solid #ddff8a;outline-offset:4px}
+.partner-details p{margin:12px 0 0;color:#e2f1f9;font-size:12px;line-height:1.65;max-width:560px}
+.partner-legal-note{color:#95abc7;font-size:12px;line-height:1.65;margin:16px 0 0;max-width:1050px}
+@media(max-width:980px){.partner-reserved{grid-column:span 6;min-height:245px}.partner-corporate{grid-column:span 12;min-height:295px}.partner-company-body{margin-top:25px}}
+@media(max-width:600px){.partner-grid{grid-template-columns:1fr;gap:12px}.partner-reserved,.partner-corporate{grid-column:1;min-height:0}.partner-reserved{padding:17px;display:grid;grid-template-columns:48px minmax(0,1fr);column-gap:13px}.partner-reserved .partner-tagline{grid-column:1/-1}.partner-reserved-art{margin:14px 0 0;width:46px;height:46px;border-radius:13px;font-size:21px}.partner-reserved h3{font-size:17px;margin:12px 0 5px}.partner-reserved .partner-placeholder-text{grid-column:2}.partner-reserved .partner-status{grid-column:1/-1;padding-top:10px}.partner-corporate{padding:19px 17px 20px}.partner-logo{flex-basis:54px;width:54px;height:54px;border-radius:15px;font-size:27px}.partner-company-body{gap:12px;margin-top:26px}.partner-company-name{font-size:22px!important}.partner-company-tag{font-size:12px}.partner-intro{align-items:flex-start;flex-direction:column;gap:10px}}
+@media print{.partner-zone{break-inside:avoid}.partner-reserved{background:#fff;color:#111}.partner-corporate{background:#333!important}}
 </style></head><body><a class="skip" href="#main">Zum Inhalt springen</a>
 <header class="topbar"><nav class="nav container" aria-label="Hauptnavigation"><a href="#start" class="brand"><span class="brand-symbol" aria-hidden="true">🎮</span> GAME VAULT</a>
-<div class="navlinks"><a href="#spiele">Spiele entdecken</a><a href="#plattformen">Plattformen</a><a href="#preise">Preise &amp; Prüfung</a><button class="btn btn-primary btn-mini navbutton" type="button" id="openWishlistTop">Merkliste <span class="button-count" id="wishCountTop">0</span></button></div></nav></header><main class="container" id="main">
+<div class="navlinks"><a href="#spiele">Spiele entdecken</a><a href="#plattformen">Plattformen</a><a href="#preise">Preise &amp; Prüfung</a><a href="#partner">Partner</a><button class="btn btn-primary btn-mini navbutton" type="button" id="openWishlistTop">Merkliste <span class="button-count" id="wishCountTop">0</span></button></div></nav></header><main class="container" id="main">
 <section class="hero" id="start" aria-labelledby="hero-title"><div class="hero-grid"><div>
 <div class="eyebrow">🎮 ÖFFENTLICHER SPIELEKATALOG · 8 PLATTFORMEN</div>
 <h1 id="hero-title">Gebrauchte Spiele entdecken. <em>Deine Favoriten merken.</em></h1>
@@ -837,7 +876,43 @@
 </section>
 <section class="section" id="ablauf" aria-labelledby="ablauf-title"><div class="section-head"><div><span class="kicker">04 / SO EINFACH GEHT'S</span><h2 id="ablauf-title">Drei Schritte, kein Rätselraten.</h2></div></div>
 <div class="steps"><article class="step"><span class="step-number">01</span><h3>Spiele finden</h3><p>Suche einen Titel oder filtere nach der Konsole. Fotos und Prüfhinweise helfen bei der Auswahl.</p></article><article class="step"><span class="step-number">02</span><h3>Spiele merken</h3><p>Tippe auf „Merken“. Du siehst deine Favoriten gesammelt in einer Merkliste – auch ohne Konto.</p></article><article class="step"><span class="step-number">03</span><h3>Unverbindlich anfragen</h3><p>Kopiere oder teile deine Merkliste. Bestand, Preis, Altersfreigabe, Versand und Übergabe werden vor einer Einigung gemeinsam geprüft.</p></article></div></section>
-<section class="section faq" id="fragen" aria-labelledby="fragen-title"><div class="faq-layout"><div><span class="kicker">05 / FRAGEN</span><h2 id="fragen-title">Gut zu wissen.</h2><p class="section-desc">Transparenz bei gebrauchten Spielen und privaten Anfragen.</p></div><div>
+
+<section class="section partner-zone" id="partner" aria-labelledby="partner-title">
+  <div class="section-head"><div><span class="kicker">PARTNER &amp; ANZEIGEN</span>
+    <h2 id="partner-title">Menschen und Projekte unterstützen.</h2>
+    <p class="section-desc">Ausgewählte Partnerhinweise – klar als Werbung erkennbar und vollständig freiwillig. Dein Spielekatalog bleibt ohne Unterbrechungen nutzbar.</p>
+  </div></div>
+  <div class="partner-intro"><p>Hier entsteht Platz für Empfehlungen und regionale Projekte. Einträge werden nur nach fachlicher und rechtlicher Prüfung freigeschaltet – keine ungefragten Weiterleitungen oder Pop-ups.</p><span class="partner-info-pill">✓ Du entscheidest, was du öffnest</span></div>
+  <div class="partner-grid" aria-label="Drei geplante Werbeflächen">
+    <article class="partner-card partner-reserved" aria-label="Werbeplatz eins, derzeit nicht aktiv">
+      <div class="partner-tagline"><span class="partner-ad-label">Werbeplatz 01</span><span class="partner-number">01 / 03</span></div>
+      <div class="partner-reserved-art" aria-hidden="true">◇</div>
+      <div class="partner-placeholder-text"><h3>Partnerfläche reserviert.</h3><p>Dieser Werbeplatz wird erst nach Prüfung der Werbeberechtigung freigeschaltet.</p></div>
+      <div class="partner-status">Derzeit keine aktive Anzeige</div>
+    </article>
+    <article class="partner-card partner-reserved" aria-label="Werbeplatz zwei, derzeit nicht aktiv">
+      <div class="partner-tagline"><span class="partner-ad-label">Werbeplatz 02</span><span class="partner-number">02 / 03</span></div>
+      <div class="partner-reserved-art" aria-hidden="true">✧</div>
+      <div class="partner-placeholder-text"><h3>Weiterer Partnerplatz.</h3><p>Für geprüfte Kooperationen. Ohne automatische Weiterleitung und ohne Zugriffsverfolgung.</p></div>
+      <div class="partner-status">Derzeit keine aktive Anzeige</div>
+    </article>
+    <article class="partner-card partner-corporate" aria-label="Werbeentwurf für Variatec.Selct, Beratung aus Waldkraiburg">
+      <div class="partner-tagline"><span class="partner-ad-label">WERBUNG · UNTERNEHMEN</span><span class="partner-number">03 / 03</span></div>
+      <div class="partner-company-body"><div class="partner-logo" aria-hidden="true">V</div><div>
+        <h3 class="partner-company-name">Variatec.Selct</h3>
+        <p class="partner-company-tag">Corporate Partner in Beratung</p>
+        <p class="partner-company-sub">Ein Service von Variatec</p>
+      </div></div>
+      <div class="partner-business-bottom"><span class="partner-location">⌖ Waldkraiburg · Bayern</span><span class="partner-info-pill">Anzeigenentwurf</span></div>
+      <details class="partner-details"><summary>Unternehmensinformationen ansehen</summary>
+        <p>Beratung aus Waldkraiburg. Diese Anzeige basiert auf einer bereitgestellten Visitenkarte. Die genaue Unternehmensschreibweise, Leistungen, Kontaktmöglichkeiten und die Zustimmung des Inhabers müssen vor dem öffentlichen Werbestart bestätigt werden.</p>
+      </details>
+    </article>
+  </div>
+  <p class="partner-legal-note">Werbeplätze 01 und 02 sind bewusst nicht verlinkt oder aktiviert. Bei der dritten Anzeige werden weder private Anschrift noch Telefonnummer oder E-Mail-Adresse veröffentlicht. Es werden keine Werbenetzwerke oder Tracking-Skripte geladen.</p>
+</section>
+
+<section class="section faq" id="fragen" aria-labelledby="fragen-title"><div class="faq-layout"><div><span class="kicker">06 / FRAGEN</span><h2 id="fragen-title">Gut zu wissen.</h2><p class="section-desc">Transparenz bei gebrauchten Spielen und privaten Anfragen.</p></div><div>
 <details class="qa"><summary>Warum steht bei Spielen „Preis auf Anfrage“?</summary><p>Weil der Verkaufspreis vom tatsächlichen Datenträger, der genauen Ausgabe, dem Zustand und der Vollständigkeit abhängt. Wir veröffentlichen keinen ungesicherten Preis.</p></details>
 <details class="qa"><summary>Was bedeutet ein verlinkter Marktvergleich?</summary><p>Es ist ein datierter Richtwert aus Verkäufen fremder PAL-Ausgaben, teilweise für vollständige Exemplare. Das ist kein verbindlicher Angebotspreis und noch keine Bewertung des hier vorhandenen Exemplars.</p></details>
 <details class="qa"><summary>Sind alle Spiele vollständig und getestet?</summary><p>Nein. Bei mehreren Titeln sind Disc oder UMD, Anleitung oder Funktionsprüfung noch offen. Fotofunde sind ausdrücklich nur unter Vorbehalt anfragbar.</p></details>
@@ -849,7 +924,7 @@
 <div class="outro-actions"><button class="btn btn-primary" type="button" id="openWishlistOutro">Merkliste ansehen</button><button type="button" class="btn btn-ghost" id="shareLink">Seitenlink teilen ↗</button></div><p id="shareStatus" class="toast" role="status" aria-live="polite"></p></section>
 </main>
 <footer class="footer container"><div><b>🎮 GAME VAULT</b><p>Öffentlicher Katalog einer privaten Spielesammlung. Abbildungen aus dem vorhandenen Bestand, unverbindliche Anfragen. Keine automatischen Bestellungen, Zahlungen oder Reservierungen. Marktwerte sind keine verbindlichen Verkaufspreise.</p><p>Bestandsstand: 24.10.2026 · Marktreferenzstand: 23.10.2026 · Inhalt und Altersfreigabe vor Übergabe prüfen.</p></div>
-<div class="footer-links"><a href="#spiele">Spiele</a><a href="#plattformen">Plattformen</a><a href="#preise">Preisprüfung</a><a href="#fragen">FAQ</a></div></footer>
+<div class="footer-links"><a href="#spiele">Spiele</a><a href="#plattformen">Plattformen</a><a href="#preise">Preisprüfung</a><a href="#partner">Partner &amp; Anzeigen</a><a href="#fragen">FAQ</a></div></footer>
 <div class="bottom-cta" aria-label="Deine Merkliste"><div class="bottom-inner container"><div class="bottom-desc"><b>Game Vault · <span id="stickyCount">0</span> Spiele gemerkt</b><span>Unverbindlich · keine Bestellung</span></div><button type="button" class="btn btn-primary" id="openWishlistBottom">Merkliste öffnen ↗</button></div></div>
 <dialog id="wishlistDialog" class="wishlist-dialog" aria-labelledby="wishlistTitle"><div style="display:flex;gap:10px;justify-content:space-between;align-items:start"><h2 id="wishlistTitle">Deine Merkliste</h2><button type="button" id="closeWishlist" class="btn btn-ghost btn-mini" aria-label="Merkliste schließen">Schließen ×</button></div>
 <p>Du kannst die Liste vor einer Anfrage ändern. Das ist keine Bestellung und reserviert nichts.</p>
