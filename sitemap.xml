@@ -1,5 +1,12 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
-<url><loc>https://marioik98.github.io/xbox-game-vault/</loc></url>
-<url><loc>https://marioik98.github.io/xbox-game-vault/verkauf.html</loc></url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://marioik98.github.io/xbox-game-vault/verkauf.html</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://marioik98.github.io/xbox-game-vault/plattform/xbox-360.html</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://marioik98.github.io/xbox-game-vault/plattform/original-xbox.html</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://marioik98.github.io/xbox-game-vault/plattform/playstation-2.html</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://marioik98.github.io/xbox-game-vault/plattform/psp.html</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://marioik98.github.io/xbox-game-vault/plattform/playstation-4.html</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://marioik98.github.io/xbox-game-vault/plattform/playstation-5.html</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://marioik98.github.io/xbox-game-vault/plattform/nintendo-ds.html</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://marioik98.github.io/xbox-game-vault/plattform/pc.html</loc><lastmod>2026-10-25</lastmod></url>
 </urlset>
