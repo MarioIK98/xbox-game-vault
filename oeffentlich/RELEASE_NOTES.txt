@@ -1,0 +1,8 @@
+GAME VAULT – TECHNISCHER RELEASE CANDIDATE
+Stand: 26.10.2026
+144 anfragbare Positionen, 8 Plattformen, 0 freigegebene Verkaufspreise.
+Keine Casino-Weiterleitung, keine Werbung ohne die erforderlichen Freigaben.
+Neue Funktionen: Auswahl-Link, bewusster Import, TXT-Sicherung und PWA-Assets.
+Die technische Prüfung hat 60 lokale DOM-/Chromium-Checks bestanden.
+Eine echte GitHub-Pages- oder Android-Abnahme ist noch nicht bestätigt.
+Keine produktive Veröffentlichung ohne Zustimmung.

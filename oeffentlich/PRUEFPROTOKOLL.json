@@ -1,0 +1,28 @@
+{
+  "generator": "Game Vault – Release Candidate 2026-10-26",
+  "generatedAt": "2026-10-26",
+  "dataVersion": "Public V4 / 2026-10-25",
+  "items": 144,
+  "platforms": 8,
+  "pricingApproved": {},
+  "publicRelease": "NOT_PERFORMED",
+  "siteSettings": {
+    "siteName": "Game Vault",
+    "siteUrl": "https://marioik98.github.io/xbox-game-vault/oeffentlich/",
+    "publicEmail": "EMPTY",
+    "showPartners": false,
+    "showVariatec": false
+  },
+  "releaseChanges": {
+    "shareableWishlistLink": "OPT_IN",
+    "wishlistTxtDownload": true,
+    "partnerAds": "OFF",
+    "PWA": "OPTIONAL"
+  },
+  "lastAudit": {
+    "scope": "Browser via page.set_content + static file validation, NOT live hosted",
+    "passed": 60,
+    "failed": 0
+  },
+  "publicationApproved": false
+}

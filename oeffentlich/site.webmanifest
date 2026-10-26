@@ -1,0 +1,26 @@
+{
+  "name": "Game Vault – Spiele entdecken",
+  "short_name": "Game Vault",
+  "description": "Öffentlicher Spielekatalog mit Wunschlisten und unverbindlichen Anfragen.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#090e20",
+  "theme_color": "#12b9a3",
+  "lang": "de-DE",
+  "icons": [
+    {
+      "src": "./icons/game-vault-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/game-vault-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
