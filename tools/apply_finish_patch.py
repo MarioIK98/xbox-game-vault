@@ -7,11 +7,18 @@ p=root/'oeffentlich/index.html'
 original=p.read_text(encoding='utf-8')
 marker='/* Game Vault buyer-flow repair 2026-10-27 */'
 if marker in original:
- print('Buyer-flow repair already present; no rewrite.');sys.exit(0)
+ if "function list(){\n $('manualCopy')?.remove();" not in original:
+  assert original.count('function list(){')==1
+  p.write_text(original.replace('function list(){',"function list(){\n $('manualCopy')?.remove();",1),encoding='utf-8')
+  print('Removed stale manual-copy data after wishlist edits.')
+ else:print('Buyer-flow repair already present; no rewrite.')
+ sys.exit(0)
 blob=hashlib.sha1(b'blob '+str(len(original.encode())).encode()+b'\0'+original.encode()).hexdigest()
 if blob!='40aa4952f1afa79668891ad147ad0239a4e124b2':
  raise SystemExit('STOP: source file differs from the inspected snapshot. Review before applying.')
 s=original
+assert s.count('function list(){')==1
+s=s.replace('function list(){',"function list(){\n $('manualCopy')?.remove();",1)
 old="$('wishlistDialog').addEventListener('click',e=>{if(e.target===$('wishlistDialog'))$('wishlistDialog').close();});"
 new="""/* Game Vault buyer-flow repair 2026-10-27 */
 $('wishlistDialog').addEventListener('click',e=>{
