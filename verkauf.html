@@ -75,9 +75,83 @@
 @media(max-width:730px){.price-explainer{grid-template-columns:1fr}.platform-links{grid-template-columns:repeat(2,minmax(0,1fr))}.platform-titles{grid-template-columns:1fr}.wishlist-dialog{padding:18px}.bottom-inner{align-items:center}}
 @media(max-width:415px){.platform-links{grid-template-columns:1fr 1fr}.platform-link{padding:13px}.hero-actions .btn{width:100%}.game-price{font-size:14px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* GAME VAULT · Partnerflächen V3 · keine automatischen Weiterleitungen */
+.partner-zone{padding-top:20px;scroll-margin-top:110px}
+.partner-intro{display:flex;gap:16px;align-items:center;justify-content:space-between;margin:-3px 0 19px}
+.partner-intro p{margin:0;max-width:760px;color:var(--muted);font-size:13px;line-height:1.65}
+.partner-info-pill{display:inline-flex;align-items:center;gap:7px;border:1px solid #77edce62;background:#153e4199;border-radius:100px;padding:9px 13px;font-size:11px;font-weight:850;color:#d0fff4;white-space:nowrap}
+.partner-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:15px;align-items:stretch}
+.partner-card{position:relative;min-width:0;min-height:325px;border:1px solid var(--line);border-radius:24px;padding:21px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 15px 34px #00000024}
+.partner-card *{min-width:0}
+.partner-reserved{grid-column:span 3;background:linear-gradient(145deg,#161d34,#121a2c 71%,#152437);border-style:dashed;border-color:#8ba6c16e}
+.partner-tagline{display:flex;justify-content:space-between;align-items:center;gap:9px}
+.partner-ad-label{color:#b0f3e5;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.partner-number{font-size:11px;color:#a3b9d0;font-weight:850;font-variant-numeric:tabular-nums}
+.partner-reserved-art{display:grid;place-items:center;margin:24px 0 16px;width:64px;height:64px;border:1px solid #a3c4e452;border-radius:17px;background:linear-gradient(145deg,#20334e,#192238);font-size:28px;color:#d6e8ff}
+.partner-card h3{font-size:20px;letter-spacing:-.02em;line-height:1.15;margin:7px 0 11px;overflow-wrap:anywhere}
+.partner-reserved p{color:#b1c6dc;font-size:13px;line-height:1.65;margin:0}
+.partner-status{margin-top:auto;display:flex;align-items:center;gap:8px;padding-top:17px;color:#b4cadf;font-size:11px;font-weight:700}
+.partner-status::before{content:"";width:8px;height:8px;border-radius:50%;background:#c4ad81;flex:none}
+.partner-corporate{grid-column:span 6;background:radial-gradient(circle at 96% 4%,#8fcafd4b,transparent 40%),linear-gradient(122deg,#2a2f70,#22527f 52%,#087d7b);border-color:#8ef4db82;padding:23px 25px 22px}
+.partner-corporate::before{content:"";position:absolute;right:-94px;bottom:-170px;width:350px;height:350px;border:1px solid #b4ffec40;box-shadow:0 0 0 42px #e2fff30b,0 0 0 84px #e2fff30a;border-radius:50%;pointer-events:none}
+.partner-corporate .partner-ad-label{color:#dcfff7}
+.partner-company-body{display:flex;align-items:flex-start;gap:18px;margin-top:35px;position:relative}
+.partner-logo{display:grid;place-items:center;flex:0 0 74px;width:74px;height:74px;border:2px solid #c5fbea;border-radius:22px;background:linear-gradient(150deg,#edffff28,#061a4050);box-shadow:0 14px 30px #0004;font-size:37px;font-weight:1000;letter-spacing:-.08em;color:#dcfff7}
+.partner-company-name{font-size:clamp(23px,2.7vw,32px)!important;margin:0 0 7px!important;line-height:1.07!important;color:#fff}
+.partner-company-tag{font-size:14px;color:#eafaff;font-weight:750;line-height:1.5;margin:0 0 5px}
+.partner-company-sub{font-size:12px;color:#d3f2f6;margin:0;line-height:1.5}
+.partner-business-bottom{position:relative;margin-top:auto;padding-top:15px;display:flex;justify-content:space-between;align-items:flex-end;gap:13px;flex-wrap:wrap}
+.partner-location{font-size:12px;color:#d3f6ef;font-weight:700;display:flex;gap:8px;align-items:center}
+.partner-details{min-width:200px;max-width:100%;position:relative;margin-top:14px}
+.partner-details summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:space-between;gap:15px;min-height:43px;border-radius:11px;padding:10px 13px;background:#062c3e;color:#e0fff6;border:1px solid #b4fff17a;font-size:12px;font-weight:900}
+.partner-details summary::-webkit-details-marker{display:none}
+.partner-details summary::after{content:"+";font-size:17px;font-weight:700}
+.partner-details[open] summary::after{content:"−"}
+.partner-details summary:focus-visible{outline:3px solid #ddff8a;outline-offset:4px}
+.partner-details p{margin:12px 0 0;color:#e2f1f9;font-size:12px;line-height:1.65;max-width:560px}
+.partner-legal-note{color:#95abc7;font-size:12px;line-height:1.65;margin:16px 0 0;max-width:1050px}
+@media(max-width:980px){.partner-reserved{grid-column:span 6;min-height:245px}.partner-corporate{grid-column:span 12;min-height:295px}.partner-company-body{margin-top:25px}}
+@media(max-width:600px){.partner-grid{grid-template-columns:1fr;gap:12px}.partner-reserved,.partner-corporate{grid-column:1;min-height:0}.partner-reserved{padding:17px;display:grid;grid-template-columns:48px minmax(0,1fr);column-gap:13px}.partner-reserved .partner-tagline{grid-column:1/-1}.partner-reserved-art{margin:14px 0 0;width:46px;height:46px;border-radius:13px;font-size:21px}.partner-reserved h3{font-size:17px;margin:12px 0 5px}.partner-reserved .partner-placeholder-text{grid-column:2}.partner-reserved .partner-status{grid-column:1/-1;padding-top:10px}.partner-corporate{padding:19px 17px 20px}.partner-logo{flex-basis:54px;width:54px;height:54px;border-radius:15px;font-size:27px}.partner-company-body{gap:12px;margin-top:26px}.partner-company-name{font-size:22px!important}.partner-company-tag{font-size:12px}.partner-intro{align-items:flex-start;flex-direction:column;gap:10px}}
+@media print{.partner-zone{break-inside:avoid}.partner-reserved{background:#fff;color:#111}.partner-corporate{background:#333!important}}
+
+/* Game Vault V4 · vollständige und unabhängige Wunschpaket-Konfiguration */
+.package-builder{background:linear-gradient(145deg,#172a45,#171d39 65%,#192341);border:1px solid #76efd25a;border-radius:23px;padding:26px;margin:6px 0 26px;box-shadow:0 12px 36px #0002;scroll-margin-top:90px}
+.builder-header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
+.package-builder h3{font-size:clamp(22px,2.4vw,32px);letter-spacing:-.035em;line-height:1.18;margin:8px 0 10px;color:#f3faff}
+.package-builder p{font-size:13px;line-height:1.55;margin:0;color:#c6d6eb;max-width:690px}
+.builder-count{flex:0 0 auto;border-radius:12px;background:#0b1c30;border:1px solid #76efd253;padding:12px 15px;color:#ceffe5;font-size:13px;font-weight:850;font-variant-numeric:tabular-nums;max-width:210px;text-align:center}
+.builder-actions{display:flex;flex-wrap:wrap;gap:10px;margin:19px 0 22px}
+.builder-actions button{min-height:43px}
+.builder-actions button:disabled{opacity:.52;cursor:not-allowed}
+.package-builder .builder-platform-heading{font-size:16px;font-weight:850;margin:0 0 12px;color:#effcff}
+.builder-platforms{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.builder-platform-button{appearance:none;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;min-height:112px;text-align:left;gap:9px;border:1px solid #b4d5fa4c;background:linear-gradient(160deg,#111b34,#20274a);border-radius:14px;color:#f0faff;padding:14px;transition:border-color .15s ease,background .15s ease;overflow-wrap:anywhere}
+.builder-platform-button:hover{border-color:#99eec6;background:#27344f}
+.builder-platform-button:focus-visible,.filtered-bulk-button:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+.builder-platform-button[data-state="all"]{border-color:#baff79;background:linear-gradient(135deg,#193b37,#1a3240)}
+.builder-platform-button[data-state="partial"]{border-color:#e4cc79}
+.builder-platform-button .bundle-name{font-size:14px;font-weight:900}
+.builder-platform-button .bundle-status{font-size:11px;color:#bdd4ec;line-height:1.35}
+.builder-platform-button[data-state="all"] .bundle-status{color:#c2ffd6}
+.builder-platform-button[data-state="partial"] .bundle-status{color:#ffe5a4}
+.package-builder .builder-footnote{font-size:11px;margin-top:16px;color:#aac4db}
+.filtered-bulk{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid #b6d0eb33;border-radius:13px;background:#111c34;color:#bccee6;margin:13px 0}
+.filtered-bulk span{font-size:12px;line-height:1.45}
+.filtered-bulk button{flex:0 0 auto;min-height:42px;border:1px solid #63dfbd;color:#cbffea;background:#17362e;border-radius:10px;padding:9px 14px;cursor:pointer;font-size:12px;font-weight:800}
+.filtered-bulk button[data-state="all"]{background:#283443;border-color:#a1b6cd;color:#e2effe}
+.filtered-bulk button:disabled{opacity:.55;cursor:not-allowed}
+.game[hidden]{display:none!important}
+.wishlist-dialog .wishlist-summary{border:1px solid #81e8c355;padding:10px 12px;color:#cdfbe6;background:#0e2b2c;border-radius:12px;font-size:13px;font-weight:800}
+.wishlist-list li.wishlist-group{margin-top:12px;background:#25434e;border:1px solid #82d7b35b;font-weight:900;position:sticky;top:0;z-index:1}
+.wishlist-list .wishlist-group button{background:#1d3440;border-color:#8de7c16b;min-width:auto}
+@media(max-width:900px){.builder-platforms{grid-template-columns:repeat(2,minmax(0,1fr))}.builder-header{flex-direction:column}.builder-count{max-width:none;width:100%;text-align:left}}
+@media(max-width:530px){.package-builder{padding:17px 14px}.builder-actions{display:grid;grid-template-columns:1fr}.builder-actions .btn{width:100%}.builder-platforms{gap:8px}.builder-platform-button{min-height:102px;padding:12px}.builder-platform-button .bundle-name{font-size:13px}.filtered-bulk{flex-direction:column;align-items:stretch}.filtered-bulk button{width:100%}.wishlist-dialog .wishlist-group{font-size:12px}}
+@media print{.package-builder,.filtered-bulk{display:none!important}}
+
 </style></head><body><a class="skip" href="#main">Zum Inhalt springen</a>
 <header class="topbar"><nav class="nav container" aria-label="Hauptnavigation"><a href="#start" class="brand"><span class="brand-symbol" aria-hidden="true">🎮</span> GAME VAULT</a>
-<div class="navlinks"><a href="#spiele">Spiele entdecken</a><a href="#plattformen">Plattformen</a><a href="#preise">Preise &amp; Prüfung</a><button class="btn btn-primary btn-mini navbutton" type="button" id="openWishlistTop">Merkliste <span class="button-count" id="wishCountTop">0</span></button></div></nav></header><main class="container" id="main">
+<div class="navlinks"><a href="#spiele">Spiele entdecken</a><a href="#plattformen">Plattformen</a><a href="#preise">Preise &amp; Prüfung</a><a href="#partner">Partner</a><button class="btn btn-primary btn-mini navbutton" type="button" id="openWishlistTop">Merkliste <span class="button-count" id="wishCountTop">0</span></button></div></nav></header><main class="container" id="main">
 <section class="hero" id="start" aria-labelledby="hero-title"><div class="hero-grid"><div>
 <div class="eyebrow">🎮 ÖFFENTLICHER SPIELEKATALOG · 8 PLATTFORMEN</div>
 <h1 id="hero-title">Gebrauchte Spiele entdecken. <em>Deine Favoriten merken.</em></h1>
@@ -92,12 +166,33 @@
 <div class="stats" aria-label="Spielebestand"><div class="stat"><strong>147</strong><small>Inventarpositionen erfasst</small></div>
 <div class="stat"><strong>144</strong><small>Positionen unverbindlich anfragbar</small></div><div class="stat"><strong>8</strong><small>Plattformen</small></div>
 <div class="stat primary"><strong>Auf Anfrage</strong><small>Einzelpreise statt pauschalem Gesamtwert</small></div></div>
-<section class="section" id="spiele" aria-labelledby="spiele-title"><div class="section-head"><div><span class="kicker">01 / ALLE SPIELE</span><h2 id="spiele-title">Finde dein nächstes Spiel.</h2><p class="section-desc">Titel eingeben, Plattform wählen und mit einem Klick merken. Du brauchst keine Anmeldung und musst keinen Paketkonfigurator verstehen.</p></div><span class="section-chip">144 anfragbare Positionen</span></div>
+<section class="section" id="spiele" aria-labelledby="spiele-title"><div class="section-head"><div><span class="kicker">01 / ALLE SPIELE</span><h2 id="spiele-title">Finde dein nächstes Spiel.</h2><p class="section-desc">Wähle komplette Konsolenplattformen, einzelne Titel oder jede beliebige Mischung. Jede Auswahl bleibt unverbindlich.</p></div><span class="section-chip">144 anfragbare Positionen</span></div>
+<div class="package-builder" id="paketkonfigurator" aria-labelledby="builderTitle">
+ <div class="builder-header">
+  <div><span class="kicker">FREIE AUSWAHL · DEIN WUNSCHPAKET</span>
+   <h3 id="builderTitle">Ein Spiel, ganze Plattformen oder alles.</h3>
+   <p>Stelle dir genau die Kombination zusammen, die du möchtest. Du kannst jede Plattform vollständig hinzufügen und anschließend einzelne Spiele wieder entfernen – auch plattformübergreifend.</p>
+  </div>
+  <div class="builder-count" id="bundleSelectionSummary" role="status" aria-live="polite">0 von 144 Positionen ausgewählt</div>
+ </div>
+ <div class="builder-actions">
+  <button type="button" class="btn btn-primary" id="selectAllGames">Gesamten anfragbaren Bestand auswählen (144)</button>
+  <button type="button" class="btn btn-ghost" id="openWishlistBuilder">Meine Auswahl ansehen (0)</button>
+  <button type="button" class="btn btn-ghost" id="clearSelectedGames" disabled>Auswahl leeren</button>
+ </div>
+ <h4 class="builder-platform-heading">Komplette Plattformen auswählen</h4>
+ <div class="builder-platforms" id="bundlePlatformGrid" role="group" aria-label="Ganze Spieleplattformen zum Wunschpaket hinzufügen oder entfernen"></div>
+ <p class="builder-footnote">Alle Plattformen lassen sich kombinieren. Unten kannst du auch einzelne Spiele hinzufügen oder entfernen. Die Auswahl bleibt unverbindlich; Verfügbarkeit, tatsächliche Datenträger, Zustand, Altersfreigabe und Preise werden vor einer Zusage geprüft.</p>
+</div>
 <div class="catalog-toolbar" role="search" aria-label="Spiele filtern"><div class="searchrow"><label class="searchbox" for="gameSearch"><span class="sr-only">Spiele suchen</span>
 <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 5 5"></path></svg>
 <input id="gameSearch" type="search" placeholder="Titel suchen, z. B. Silent Hill, Minecraft …" autocomplete="off"></label>
 <select id="sortGames" class="sort" aria-label="Katalog sortieren"><option value="photos">Originalfotos zuerst</option><option value="platform">Nach Plattform</option><option value="title">Titel A–Z</option></select></div>
 <div class="platforms" id="platformFilters" aria-label="Plattform auswählen"><button type="button" data-platform="Xbox 360" aria-pressed="false">Xbox 360</button><button type="button" data-platform="Original Xbox" aria-pressed="false">Original Xbox</button><button type="button" data-platform="PS2" aria-pressed="false">PS2</button><button type="button" data-platform="PSP" aria-pressed="false">PSP</button><button type="button" data-platform="PS4" aria-pressed="false">PS4</button><button type="button" data-platform="PS5" aria-pressed="false">PS5</button><button type="button" data-platform="Nintendo DS" aria-pressed="false">Nintendo DS</button><button type="button" data-platform="PC" aria-pressed="false">PC</button></div></div>
+<div class="filtered-bulk" aria-label="Aktuelle Suchtreffer gesammelt auswählen">
+ <span>Du kannst auch <strong>alle Treffer der aktuellen Suche</strong> auf einmal auswählen, selbst wenn zunächst nur ein Teil angezeigt wird.</span>
+ <button type="button" class="filtered-bulk-button" id="toggleFilteredGames">Alle 144 Treffer hinzufügen</button>
+</div>
 <div class="result-bar"><span id="resultCount" role="status" aria-live="polite">144 Positionen</span><span class="sync">Inventarsnapshot vom 24.10.2026 · Verfügbarkeit vor Zusage prüfen</span></div>
 <div class="games" id="gameGrid" aria-label="Spielangebote"><article class="game" id="spiel-X360-001" data-public-card data-uid="X360-001" data-platform="Xbox 360" data-title="Minecraft: Xbox 360 Edition" data-edition="PAL" data-photo="0">
     <div class="game-visual"><span class="game-system">Xbox 360</span><span class="game-symbol" aria-hidden="true">360</span></div>
@@ -824,7 +919,7 @@
 <div class="catalog-foot"><p><strong>Alles gefunden?</strong> Öffne deine Merkliste, prüfe die Titel und kopiere deine unverbindliche Anfrage.</p>
 <button class="btn btn-primary" type="button" id="openWishlistCatalog">Merkliste öffnen <span class="button-count" id="wishCountCatalog">0</span></button></div>
 </section>
-<section class="section" id="plattformen" aria-labelledby="plattformen-title"><div class="section-head"><div><span class="kicker">02 / SPIELEPLATTFORMEN</span><h2 id="plattformen-title">Nach Konsole stöbern.</h2><p class="section-desc">Jede Plattform hat eine eigene übersichtliche Seite – auch direkt über Suchmaschinen auffindbar, sobald veröffentlicht und indexiert.</p></div></div>
+<section class="section" id="plattformen" aria-labelledby="plattformen-title"><div class="section-head"><div><span class="kicker">02 / SPIELEPLATTFORMEN</span><h2 id="plattformen-title">Nach Konsole stöbern.</h2><p class="section-desc">Wähle Plattformen oben komplett für dein Wunschpaket aus oder stöbere auf den einzelnen Plattformseiten. Einzelspiele kannst du jederzeit hinzufügen oder entfernen.</p></div></div>
 <div class="platform-links"><a class="platform-link" href="plattform/xbox-360.html"><b>Xbox 360</b><small>55 anfragbare Positionen · Plattform ansehen ↗</small></a><a class="platform-link" href="plattform/original-xbox.html"><b>Original Xbox</b><small>7 anfragbare Positionen · Plattform ansehen ↗</small></a><a class="platform-link" href="plattform/playstation-2.html"><b>PlayStation 2</b><small>39 anfragbare Positionen · Plattform ansehen ↗</small></a><a class="platform-link" href="plattform/psp.html"><b>PlayStation Portable (PSP)</b><small>37 anfragbare Positionen · Plattform ansehen ↗</small></a><a class="platform-link" href="plattform/playstation-4.html"><b>PlayStation 4</b><small>3 anfragbare Positionen · Plattform ansehen ↗</small></a><a class="platform-link" href="plattform/playstation-5.html"><b>PlayStation 5</b><small>1 anfragbare Positionen · Plattform ansehen ↗</small></a><a class="platform-link" href="plattform/nintendo-ds.html"><b>Nintendo DS</b><small>1 anfragbare Positionen · Plattform ansehen ↗</small></a><a class="platform-link" href="plattform/pc.html"><b>PC</b><small>1 anfragbare Positionen · Plattform ansehen ↗</small></a></div></section>
 <section class="section" id="preise" aria-labelledby="preise-title"><div class="section-head"><div><span class="kicker">03 / FAIRE MARKTWERTE</span><h2 id="preise-title">Echte Vergleiche. Keine Fantasiepreise.</h2><p class="section-desc">Jedes Spiel wird anhand der tatsächlichen Ausgabe, des Spielmediums, des Zustands und passender Marktvergleiche bewertet. Bis zur Einzelprüfung und Freigabe gilt: Preis auf Anfrage.</p></div></div>
 <div class="price-explainer"><div class="price-panel"><span class="kicker">SO ENTSTEHEN PREISE</span><h3>Erst prüfen, dann beziffern.</h3>
@@ -837,7 +932,43 @@
 </section>
 <section class="section" id="ablauf" aria-labelledby="ablauf-title"><div class="section-head"><div><span class="kicker">04 / SO EINFACH GEHT'S</span><h2 id="ablauf-title">Drei Schritte, kein Rätselraten.</h2></div></div>
 <div class="steps"><article class="step"><span class="step-number">01</span><h3>Spiele finden</h3><p>Suche einen Titel oder filtere nach der Konsole. Fotos und Prüfhinweise helfen bei der Auswahl.</p></article><article class="step"><span class="step-number">02</span><h3>Spiele merken</h3><p>Tippe auf „Merken“. Du siehst deine Favoriten gesammelt in einer Merkliste – auch ohne Konto.</p></article><article class="step"><span class="step-number">03</span><h3>Unverbindlich anfragen</h3><p>Kopiere oder teile deine Merkliste. Bestand, Preis, Altersfreigabe, Versand und Übergabe werden vor einer Einigung gemeinsam geprüft.</p></article></div></section>
-<section class="section faq" id="fragen" aria-labelledby="fragen-title"><div class="faq-layout"><div><span class="kicker">05 / FRAGEN</span><h2 id="fragen-title">Gut zu wissen.</h2><p class="section-desc">Transparenz bei gebrauchten Spielen und privaten Anfragen.</p></div><div>
+
+<section class="section partner-zone" id="partner" aria-labelledby="partner-title">
+  <div class="section-head"><div><span class="kicker">PARTNER &amp; ANZEIGEN</span>
+    <h2 id="partner-title">Menschen und Projekte unterstützen.</h2>
+    <p class="section-desc">Ausgewählte Partnerhinweise – klar als Werbung erkennbar und vollständig freiwillig. Dein Spielekatalog bleibt ohne Unterbrechungen nutzbar.</p>
+  </div></div>
+  <div class="partner-intro"><p>Hier entsteht Platz für Empfehlungen und regionale Projekte. Einträge werden nur nach fachlicher und rechtlicher Prüfung freigeschaltet – keine ungefragten Weiterleitungen oder Pop-ups.</p><span class="partner-info-pill">✓ Du entscheidest, was du öffnest</span></div>
+  <div class="partner-grid" aria-label="Drei geplante Werbeflächen">
+    <article class="partner-card partner-reserved" aria-label="Werbeplatz eins, derzeit nicht aktiv">
+      <div class="partner-tagline"><span class="partner-ad-label">Werbeplatz 01</span><span class="partner-number">01 / 03</span></div>
+      <div class="partner-reserved-art" aria-hidden="true">◇</div>
+      <div class="partner-placeholder-text"><h3>Partnerfläche reserviert.</h3><p>Dieser Werbeplatz wird erst nach Prüfung der Werbeberechtigung freigeschaltet.</p></div>
+      <div class="partner-status">Derzeit keine aktive Anzeige</div>
+    </article>
+    <article class="partner-card partner-reserved" aria-label="Werbeplatz zwei, derzeit nicht aktiv">
+      <div class="partner-tagline"><span class="partner-ad-label">Werbeplatz 02</span><span class="partner-number">02 / 03</span></div>
+      <div class="partner-reserved-art" aria-hidden="true">✧</div>
+      <div class="partner-placeholder-text"><h3>Weiterer Partnerplatz.</h3><p>Für geprüfte Kooperationen. Ohne automatische Weiterleitung und ohne Zugriffsverfolgung.</p></div>
+      <div class="partner-status">Derzeit keine aktive Anzeige</div>
+    </article>
+    <article class="partner-card partner-corporate" aria-label="Werbeentwurf für Variatec.Selct, Beratung aus Waldkraiburg">
+      <div class="partner-tagline"><span class="partner-ad-label">WERBUNG · UNTERNEHMEN</span><span class="partner-number">03 / 03</span></div>
+      <div class="partner-company-body"><div class="partner-logo" aria-hidden="true">V</div><div>
+        <h3 class="partner-company-name">Variatec.Selct</h3>
+        <p class="partner-company-tag">Corporate Partner in Beratung</p>
+        <p class="partner-company-sub">Ein Service von Variatec</p>
+      </div></div>
+      <div class="partner-business-bottom"><span class="partner-location">⌖ Waldkraiburg · Bayern</span><span class="partner-info-pill">Anzeigenentwurf</span></div>
+      <details class="partner-details"><summary>Unternehmensinformationen ansehen</summary>
+        <p>Beratung aus Waldkraiburg. Diese Anzeige basiert auf einer bereitgestellten Visitenkarte. Die genaue Unternehmensschreibweise, Leistungen, Kontaktmöglichkeiten und die Zustimmung des Inhabers müssen vor dem öffentlichen Werbestart bestätigt werden.</p>
+      </details>
+    </article>
+  </div>
+  <p class="partner-legal-note">Werbeplätze 01 und 02 sind bewusst nicht verlinkt oder aktiviert. Bei der dritten Anzeige werden weder private Anschrift noch Telefonnummer oder E-Mail-Adresse veröffentlicht. Es werden keine Werbenetzwerke oder Tracking-Skripte geladen.</p>
+</section>
+
+<section class="section faq" id="fragen" aria-labelledby="fragen-title"><div class="faq-layout"><div><span class="kicker">06 / FRAGEN</span><h2 id="fragen-title">Gut zu wissen.</h2><p class="section-desc">Transparenz bei gebrauchten Spielen und privaten Anfragen.</p></div><div>
 <details class="qa"><summary>Warum steht bei Spielen „Preis auf Anfrage“?</summary><p>Weil der Verkaufspreis vom tatsächlichen Datenträger, der genauen Ausgabe, dem Zustand und der Vollständigkeit abhängt. Wir veröffentlichen keinen ungesicherten Preis.</p></details>
 <details class="qa"><summary>Was bedeutet ein verlinkter Marktvergleich?</summary><p>Es ist ein datierter Richtwert aus Verkäufen fremder PAL-Ausgaben, teilweise für vollständige Exemplare. Das ist kein verbindlicher Angebotspreis und noch keine Bewertung des hier vorhandenen Exemplars.</p></details>
 <details class="qa"><summary>Sind alle Spiele vollständig und getestet?</summary><p>Nein. Bei mehreren Titeln sind Disc oder UMD, Anleitung oder Funktionsprüfung noch offen. Fotofunde sind ausdrücklich nur unter Vorbehalt anfragbar.</p></details>
@@ -849,56 +980,119 @@
 <div class="outro-actions"><button class="btn btn-primary" type="button" id="openWishlistOutro">Merkliste ansehen</button><button type="button" class="btn btn-ghost" id="shareLink">Seitenlink teilen ↗</button></div><p id="shareStatus" class="toast" role="status" aria-live="polite"></p></section>
 </main>
 <footer class="footer container"><div><b>🎮 GAME VAULT</b><p>Öffentlicher Katalog einer privaten Spielesammlung. Abbildungen aus dem vorhandenen Bestand, unverbindliche Anfragen. Keine automatischen Bestellungen, Zahlungen oder Reservierungen. Marktwerte sind keine verbindlichen Verkaufspreise.</p><p>Bestandsstand: 24.10.2026 · Marktreferenzstand: 23.10.2026 · Inhalt und Altersfreigabe vor Übergabe prüfen.</p></div>
-<div class="footer-links"><a href="#spiele">Spiele</a><a href="#plattformen">Plattformen</a><a href="#preise">Preisprüfung</a><a href="#fragen">FAQ</a></div></footer>
+<div class="footer-links"><a href="#spiele">Spiele</a><a href="#plattformen">Plattformen</a><a href="#preise">Preisprüfung</a><a href="#partner">Partner &amp; Anzeigen</a><a href="#fragen">FAQ</a></div></footer>
 <div class="bottom-cta" aria-label="Deine Merkliste"><div class="bottom-inner container"><div class="bottom-desc"><b>Game Vault · <span id="stickyCount">0</span> Spiele gemerkt</b><span>Unverbindlich · keine Bestellung</span></div><button type="button" class="btn btn-primary" id="openWishlistBottom">Merkliste öffnen ↗</button></div></div>
 <dialog id="wishlistDialog" class="wishlist-dialog" aria-labelledby="wishlistTitle"><div style="display:flex;gap:10px;justify-content:space-between;align-items:start"><h2 id="wishlistTitle">Deine Merkliste</h2><button type="button" id="closeWishlist" class="btn btn-ghost btn-mini" aria-label="Merkliste schließen">Schließen ×</button></div>
 <p>Du kannst die Liste vor einer Anfrage ändern. Das ist keine Bestellung und reserviert nichts.</p>
+<p id="wishlistSummary" class="wishlist-summary" role="status">0 von 144 Positionen ausgewählt</p>
 <p id="wishlistEmpty">Noch keine Spiele gemerkt. Gehe zurück zum Katalog und wähle „Merken“.</p><ul id="wishlistItems" class="wishlist-list" aria-live="polite"></ul>
 <div class="wishlist-actions"><button type="button" id="copyWishlist" class="btn btn-primary">Anfrage kopieren</button><button type="button" id="shareWishlist" class="btn btn-ghost">Anfrage teilen</button><button type="button" id="clearWishlist" class="btn btn-ghost">Liste leeren</button></div>
 <p class="wish-status" id="wishlistStatus" role="status" aria-live="polite"></p><p><small>Ein öffentliches Kontaktziel wird erst nach Freigabe ergänzt. Bis dahin kann die Nachricht über den bisherigen Kontaktkanal übermittelt werden.</small></p></dialog>
-<script>(() => {
+<script>
+(() => {
 'use strict';
 const $=id=>document.getElementById(id);
 const cards=[...document.querySelectorAll('[data-public-card]')];
 const byId=new Map(cards.map(x=>[x.dataset.uid,x]));
 const storeKey='mario_game_vault_public_wishlist_v2';
 const folded=s=>String(s||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('de');
-const ord=["Xbox 360","Original Xbox","PS2","PSP","PS4","PS5","Nintendo DS","PC"];
-let wanted=new Set(),platform='Alle',limit=12;
-try{const raw=JSON.parse(localStorage.getItem(storeKey)||'[]');if(Array.isArray(raw))wanted=new Set(raw.filter(x=>typeof x==='string'&&byId.has(x)).slice(0,144))}catch(_){}
-const save=()=>{try{localStorage.setItem(storeKey,JSON.stringify([...wanted]))}catch(_){}}
-const wishlistText=()=>{const a=[...wanted].map(x=>byId.get(x)).filter(Boolean).sort((a,b)=>a.dataset.platform.localeCompare(b.dataset.platform,'de')||a.dataset.title.localeCompare(b.dataset.title,'de'));
- return 'Unverbindliche Game-Vault-Anfrage\n\n'+a.map((x,i)=>`${i+1}. ${x.dataset.title} (${x.dataset.platform}) — ${x.dataset.uid}`).join('\n')+'\n\nBitte teile mir zu den ausgewählten Spielen Verfügbarkeit, tatsächlichen Zustand, enthaltene Datenträger, Altersfreigabe und mögliche Einzel-/Paketpreise mit. Dies ist keine Bestellung und keine Reservierung.\n';};
-function updateCount(){const count=wanted.size;for(const id of ['wishCountTop','wishCountHero','wishCountCatalog','stickyCount']){const el=$(id);if(el)el.textContent=String(count)}
- for(const card of cards){const b=card.querySelector('[data-add]');if(!b)continue;const on=wanted.has(card.dataset.uid);b.setAttribute('aria-pressed',String(on));b.textContent=on?'✓ Gemerkt — entfernen':'＋ Merken';b.setAttribute('aria-label',(on?'Entfernen: ':'Zur Merkliste hinzufügen: ')+card.dataset.title)} }
-function list(){const arr=[...wanted].map(id=>byId.get(id)).filter(Boolean).sort((a,b)=>a.dataset.title.localeCompare(b.dataset.title,'de'));$('wishlistItems').replaceChildren();$('wishlistEmpty').hidden=arr.length>0;
- for(const card of arr){const li=document.createElement('li'),span=document.createElement('span'),btn=document.createElement('button');span.textContent=card.dataset.title+' · '+card.dataset.platform;btn.textContent='Entfernen';btn.type='button';btn.dataset.remove=card.dataset.uid;li.append(span,btn);$('wishlistItems').append(li)}
- for(const k of ['copyWishlist','shareWishlist','clearWishlist'])$(k).disabled=!arr.length;
- $('wishlistStatus').textContent='';updateCount();}
-function openList(){list();const dlg=$('wishlistDialog');if(!dlg.open){dlg.showModal()}}
-function render(){const search=folded($('gameSearch').value.trim());let visible=cards.filter(x=>(platform==='Alle'||x.dataset.platform===platform)&&folded(x.dataset.title+' '+x.dataset.edition+' '+x.dataset.platform).includes(search));
- const sort=$('sortGames').value;if(sort==='title')visible.sort((a,b)=>a.dataset.title.localeCompare(b.dataset.title,'de'));else if(sort==='platform')visible.sort((a,b)=>ord.indexOf(a.dataset.platform)-ord.indexOf(b.dataset.platform)||a.dataset.title.localeCompare(b.dataset.title,'de'));else visible.sort((a,b)=>Number(b.dataset.photo)-Number(a.dataset.photo)||a.dataset.title.localeCompare(b.dataset.title,'de'));
+const ord=['Xbox 360','Original Xbox','PS2','PSP','PS4','PS5','Nintendo DS','PC'];
+const grouped=new Map(ord.map(p=>[p,cards.filter(x=>x.dataset.platform===p)]));let wanted=new Set(),platform='Alle',limit=12;
+try{const raw=JSON.parse(localStorage.getItem(storeKey)||'[]');if(Array.isArray(raw))wanted=new Set(raw.filter(x=>typeof x==='string'&&byId.has(x)).slice(0,cards.length))}catch(_){}
+const save=()=>{try{localStorage.setItem(storeKey,JSON.stringify([...wanted]))}catch(_){};};
+const filteredCards=()=>{const q=folded($('gameSearch').value.trim());return cards.filter(x=>(platform==='Alle'||x.dataset.platform===platform)&&folded(x.dataset.title+' '+x.dataset.edition+' '+x.dataset.platform+' '+x.dataset.uid).includes(q));};
+const totalFor=p=>(grouped.get(p)||[]).length;
+const pickedFor=p=>(grouped.get(p)||[]).filter(x=>wanted.has(x.dataset.uid)).length;
+function wishlistText(){
+ const active=ord.filter(p=>pickedFor(p));
+ let message=`Unverbindliche Game-Vault-Anfrage\n${wanted.size} von ${cards.length} anfragbaren Positionen aus ${active.length} Plattformen\n`;
+ for(const p of active){const selection=grouped.get(p).filter(x=>wanted.has(x.dataset.uid)).sort((a,b)=>a.dataset.title.localeCompare(b.dataset.title,'de'));
+ message+=`\n${p} (${selection.length} von ${totalFor(p)})\n`;
+ for(const [i,x] of selection.entries()){message+=`${i+1}. ${x.dataset.title} · ${x.dataset.edition||'Edition zu prüfen'} [${x.dataset.uid}]\n`;}}
+ return message+'\nAlle Positionen sind zunächst nur angefragt. Bitte Verfügbarkeit, Originaldatenträger, Edition, Vollständigkeit, Zustand, Altersfreigabe sowie Einzel-/Paketpreise vor einer Zusage prüfen. Dies ist keine Bestellung oder Reservierung.\n';
+}
+function setWantedFor(items,flag){for(const x of items){if(flag)wanted.add(x.dataset.uid);else wanted.delete(x.dataset.uid);}save();updateCount();}
+function clearWanted(){if(!wanted.size)return;if(!confirm(`Möchtest du alle ${wanted.size} gemerkten Positionen aus deiner Merkliste entfernen?`))return;wanted.clear();save();updateCount();if($('wishlistDialog').open)list();}
+function initBuilderPlatforms(){const grid=$('bundlePlatformGrid');for(const p of ord){const members=grouped.get(p);if(!members?.length)continue;
+ const b=document.createElement('button');b.type='button';b.className='builder-platform-button';b.dataset.bundlePlatform=p;b.dataset.state='none';b.setAttribute('aria-pressed','false');
+ const label=document.createElement('span');label.className='bundle-name';label.textContent=p;
+ const status=document.createElement('span');status.className='bundle-status';status.textContent=`${members.length} Positionen · Komplett hinzufügen`;
+ b.append(label,status);grid.append(b);}}
+function updateBundleControls(){
+ const count=wanted.size;
+ $('bundleSelectionSummary').textContent=`${count} von ${cards.length} Positionen ausgewählt`;
+ $('openWishlistBuilder').textContent=`Meine Auswahl ansehen (${count})`;
+ $('clearSelectedGames').disabled=!count;
+ $('selectAllGames').disabled=count===cards.length;
+ $('selectAllGames').textContent=count===cards.length?'✓ Gesamter anfragbarer Bestand ausgewählt':`Gesamten anfragbaren Bestand auswählen (${cards.length})`;
+ for(const button of $('bundlePlatformGrid').querySelectorAll('[data-bundle-platform]')){
+  const p=button.dataset.bundlePlatform,total=totalFor(p),picked=pickedFor(p);
+  const state=picked===0?'none':picked===total?'all':'partial';
+  button.dataset.state=state;button.setAttribute('aria-pressed',state==='partial'?'mixed':String(state==='all'));
+  button.querySelector('.bundle-status').textContent=state==='none'?`${total} Positionen · Alle hinzufügen`:state==='all'?`✓ Alle ${total} gemerkt · Entfernen`:`${picked} von ${total} gemerkt · Rest hinzufügen`;
+  button.setAttribute('aria-label',state==='all'?`${p}: alle ${total} Positionen aus der Merkliste entfernen`:`${p}: gesamte Plattform mit ${total} Positionen auswählen, davon ${picked} bereits gemerkt`);
+ }
+ updateFilteredButton();
+}
+function updateFilteredButton(){const items=filteredCards(),button=$('toggleFilteredGames');if(!items.length){button.disabled=true;button.textContent='Keine Treffer';button.dataset.state='none';return;}
+ const full=items.every(x=>wanted.has(x.dataset.uid));button.disabled=false;button.dataset.state=full?'all':'partial';button.setAttribute('aria-pressed',String(full));
+ button.textContent=full?`Alle ${items.length} Treffer wieder entfernen`:`Alle ${items.length} Treffer hinzufügen`;
+}
+function updateCount(){
+ const count=wanted.size;for(const id of ['wishCountTop','wishCountHero','wishCountCatalog','stickyCount']){const el=$(id);if(el)el.textContent=String(count);}
+ for(const card of cards){const b=card.querySelector('[data-add]');if(!b)continue;const on=wanted.has(card.dataset.uid);b.setAttribute('aria-pressed',String(on));b.textContent=on?'✓ Gemerkt — entfernen':'＋ Merken';b.setAttribute('aria-label',(on?'Entfernen: ':'Zur Merkliste hinzufügen: ')+card.dataset.title);}
+ updateBundleControls();
+}
+function list(){
+ const listEl=$('wishlistItems');listEl.replaceChildren();
+ const picked=ord.filter(p=>pickedFor(p)>0);
+ $('wishlistEmpty').hidden=wanted.size>0;
+ $('wishlistSummary').textContent=`${wanted.size} von ${cards.length} Positionen aus ${picked.length} Plattformen ausgewählt · Preise auf Anfrage`;
+ for(const p of picked){
+  const head=document.createElement('li');head.className='wishlist-group';
+  const label=document.createElement('strong');label.textContent=`${p} · ${pickedFor(p)} von ${totalFor(p)}`;
+  const remove=document.createElement('button');remove.type='button';remove.dataset.removePlatform=p;remove.textContent='Plattform entfernen';remove.setAttribute('aria-label',`${p}: alle ${pickedFor(p)} gemerkten Spiele entfernen`);
+  head.append(label,remove);listEl.append(head);
+  const selected=(grouped.get(p)||[]).filter(x=>wanted.has(x.dataset.uid)).sort((a,b)=>a.dataset.title.localeCompare(b.dataset.title,'de'));
+  for(const card of selected){const li=document.createElement('li'),span=document.createElement('span'),btn=document.createElement('button');span.textContent=card.dataset.title+' · '+(card.dataset.edition||'Edition offen');btn.textContent='Entfernen';btn.type='button';btn.dataset.remove=card.dataset.uid;btn.setAttribute('aria-label',card.dataset.title+' aus der Merkliste entfernen');li.append(span,btn);listEl.append(li);}
+ }
+ for(const k of ['copyWishlist','shareWishlist','clearWishlist'])$(k).disabled=!wanted.size;
+ $('wishlistStatus').textContent='';updateCount();
+}
+function openList(){list();const dlg=$('wishlistDialog');if(!dlg.open)dlg.showModal();}
+function render(){const visible=filteredCards();const sort=$('sortGames').value;
+ if(sort==='title')visible.sort((a,b)=>a.dataset.title.localeCompare(b.dataset.title,'de'));
+ else if(sort==='platform')visible.sort((a,b)=>ord.indexOf(a.dataset.platform)-ord.indexOf(b.dataset.platform)||a.dataset.title.localeCompare(b.dataset.title,'de'));
+ else visible.sort((a,b)=>Number(b.dataset.photo)-Number(a.dataset.photo)||a.dataset.title.localeCompare(b.dataset.title,'de'));
  const grid=$('gameGrid');grid.replaceChildren();visible.forEach((x,i)=>{x.hidden=i>=limit;grid.append(x)});
  $('showMore').hidden=visible.length<=limit;$('showMore').textContent=`Weitere Spiele anzeigen (${Math.max(0,visible.length-limit)} übrig) ↓`;
- $('resultCount').textContent=visible.length+' Treffer · '+Math.min(limit,visible.length)+' angezeigt';
- if(!visible.length){const n=document.createElement('p');n.className='empty';n.textContent='Keine Treffer. Versuche einen anderen Titel oder wechsle auf „Alle Plattformen“.';grid.append(n)} }
-function platformButtons(){const holder=$('platformFilters');holder.replaceChildren();for(const [p,count] of [['Alle',cards.length],...ord.map(p=>[p,cards.filter(x=>x.dataset.platform===p).length])]){if(count===0)continue;const b=document.createElement('button');b.type='button';b.dataset.platform=p;b.setAttribute('aria-pressed',String(platform===p));b.textContent=p+' ('+count+')';holder.append(b)}}
+ $('resultCount').textContent=`${visible.length} Treffer · ${Math.min(limit,visible.length)} angezeigt`;
+ if(!visible.length){const n=document.createElement('p');n.className='empty';n.textContent='Keine Treffer. Versuche einen anderen Titel oder wechsle auf „Alle Plattformen“.';grid.append(n);}
+ updateFilteredButton();
+}
+function platformButtons(){const holder=$('platformFilters');holder.replaceChildren();for(const [p,count] of [['Alle',cards.length],...ord.map(p=>[p,totalFor(p)])]){if(!count)continue;const b=document.createElement('button');b.type='button';b.dataset.platform=p;b.setAttribute('aria-pressed',String(platform===p));b.textContent=p==='Alle'?`Alle Plattformen (${count})`:`${p} (${count})`;holder.append(b);}}
 function selectedPlatform(value){if(value!=='Alle'&&!ord.includes(value))return;platform=value;limit=12;platformButtons();render();}
-$('platformFilters').addEventListener('click',e=>{const b=e.target.closest('[data-platform]');if(b)selectedPlatform(b.dataset.platform)});
+$('platformFilters').addEventListener('click',e=>{const b=e.target.closest('[data-platform]');if(b)selectedPlatform(b.dataset.platform);});
 $('gameSearch').addEventListener('input',()=>{limit=12;render()});$('sortGames').addEventListener('change',render);$('showMore').addEventListener('click',()=>{limit+=24;render()});
-$('gameGrid').addEventListener('click',e=>{const b=e.target.closest('[data-add]');if(!b)return;const id=b.dataset.add;if(!byId.has(id))return;if(wanted.has(id))wanted.delete(id);else wanted.add(id);save();updateCount()});
-$('wishlistItems').addEventListener('click',e=>{const b=e.target.closest('[data-remove]');if(!b)return;wanted.delete(b.dataset.remove);save();list()});
-for(const id of ['openWishlistTop','openWishlistHero','openWishlistCatalog','openWishlistOutro','openWishlistBottom'])$(id)?.addEventListener('click',openList);
+$('gameGrid').addEventListener('click',e=>{const b=e.target.closest('[data-add]');if(!b)return;const id=b.dataset.add;if(!byId.has(id))return;if(wanted.has(id))wanted.delete(id);else wanted.add(id);save();updateCount();});
+$('wishlistItems').addEventListener('click',e=>{const remove=e.target.closest('[data-remove]');if(remove){wanted.delete(remove.dataset.remove);save();list();return;}const group=e.target.closest('[data-remove-platform]');if(group){setWantedFor(grouped.get(group.dataset.removePlatform)||[],false);list();}});
+$('bundlePlatformGrid').addEventListener('click',e=>{const button=e.target.closest('[data-bundle-platform]');if(!button)return;const p=button.dataset.bundlePlatform,items=grouped.get(p)||[];const all=items.every(x=>wanted.has(x.dataset.uid));setWantedFor(items,!all);});
+$('selectAllGames').addEventListener('click',()=>setWantedFor(cards,true));
+$('toggleFilteredGames').addEventListener('click',()=>{const items=filteredCards();if(!items.length)return;const all=items.every(x=>wanted.has(x.dataset.uid));setWantedFor(items,!all);});
+$('clearSelectedGames').addEventListener('click',clearWanted);
+$('clearWishlist').addEventListener('click',()=>{clearWanted();if($('wishlistDialog').open)list();});
+for(const id of ['openWishlistTop','openWishlistHero','openWishlistCatalog','openWishlistOutro','openWishlistBottom','openWishlistBuilder'])$(id)?.addEventListener('click',openList);
 $('closeWishlist').addEventListener('click',()=>$('wishlistDialog').close());
-$('wishlistDialog').addEventListener('click',e=>{if(e.target===$('wishlistDialog'))$('wishlistDialog').close()});
-$('clearWishlist').addEventListener('click',()=>{if(!wanted.size)return;if(!confirm('Merkliste wirklich leeren?'))return;wanted.clear();save();list()});
-async function copyText(value){if(navigator.clipboard&&location.protocol==='https:')try{await navigator.clipboard.writeText(value);return true}catch(_){}
- const field=document.createElement('textarea');field.value=value;field.setAttribute('readonly','');field.style.position='fixed';field.style.top='-1000px';document.body.append(field);field.select();let ok=false;try{ok=document.execCommand('copy')}catch(_){}field.remove();return ok}
-$('copyWishlist').addEventListener('click',async()=>{$('wishlistStatus').textContent=await copyText(wishlistText())?'Anfrage kopiert. Du kannst sie über deinen Kontaktweg versenden.':'Kopieren hier nicht verfügbar. Bitte die Merkliste manuell auswählen.'});
-$('shareWishlist').addEventListener('click',async()=>{try{if(navigator.share){await navigator.share({title:'Game-Vault-Anfrage',text:wishlistText()});$('wishlistStatus').textContent='Teilen geöffnet.'}else $('wishlistStatus').textContent=await copyText(wishlistText())?'Anfrage kopiert. Jetzt in deine Nachricht einfügen.':'Bitte Kopieren verwenden.'}catch(e){$('wishlistStatus').textContent=e?.name==='AbortError'?'Teilen abgebrochen.':'Teilen nicht möglich. Bitte kopieren.'}});
-$('shareLink').addEventListener('click',async()=>{const url='https://marioik98.github.io/xbox-game-vault/verkauf.html';try{if(navigator.share){await navigator.share({title:'Game Vault – gebrauchte Videospiele entdecken',url});$('shareStatus').textContent='Link zum Teilen geöffnet.'}else $('shareStatus').textContent=await copyText(url)?'Webseiten-Link kopiert.':'Webseiten-Link: '+url}catch(e){$('shareStatus').textContent=e?.name==='AbortError'?'Teilen abgebrochen.':'Webseiten-Link: '+url}});
+$('wishlistDialog').addEventListener('click',e=>{if(e.target===$('wishlistDialog'))$('wishlistDialog').close();});
+async function copyText(value){if(navigator.clipboard&&location.protocol==='https:')try{await navigator.clipboard.writeText(value);return true;}catch(_){}
+ const field=document.createElement('textarea');field.value=value;field.setAttribute('readonly','');field.style.position='fixed';field.style.top='-1000px';document.body.append(field);field.select();let ok=false;try{ok=document.execCommand('copy')}catch(_){}field.remove();return ok;}
+$('copyWishlist').addEventListener('click',async()=>{$('wishlistStatus').textContent=await copyText(wishlistText())?'Anfrage kopiert. Du kannst sie über deinen Kontaktweg versenden.':'Kopieren hier nicht verfügbar. Bitte die Merkliste manuell auswählen.';});
+$('shareWishlist').addEventListener('click',async()=>{try{if(navigator.share){await navigator.share({title:'Game-Vault-Anfrage',text:wishlistText()});$('wishlistStatus').textContent='Teilen geöffnet.';}else $('wishlistStatus').textContent=await copyText(wishlistText())?'Anfrage kopiert. Jetzt in deine Nachricht einfügen.':'Bitte Kopieren verwenden.';}catch(e){$('wishlistStatus').textContent=e?.name==='AbortError'?'Teilen abgebrochen.':'Teilen nicht möglich. Bitte kopieren.';}});
+$('shareLink').addEventListener('click',async()=>{const url=/^https?:$/.test(location.protocol)?location.href.split('#')[0]:'';if(!url){$('shareStatus').textContent='Dieser lokale Entwurf hat noch keinen öffentlich teilbaren Link.';return;}try{if(navigator.share){await navigator.share({title:'Game Vault – gebrauchte Videospiele entdecken',url});$('shareStatus').textContent='Link zum Teilen geöffnet.';}else $('shareStatus').textContent=await copyText(url)?'Webseiten-Link kopiert.':'Webseiten-Link: '+url;}catch(e){$('shareStatus').textContent=e?.name==='AbortError'?'Teilen abgebrochen.':'Webseiten-Link: '+url;}});
+initBuilderPlatforms();
 const qs=new URLSearchParams(location.search);const p=qs.get('plattform');if(p&&ord.includes(p))platform=p;
 const uid=qs.get('spiel');if(uid&&byId.has(uid)){$('gameSearch').value=byId.get(uid).dataset.title;platform=byId.get(uid).dataset.platform;}
 platformButtons();updateCount();render();
 if(uid&&byId.has(uid))setTimeout(()=>byId.get(uid).scrollIntoView({block:'start'}),70);
-})();</script></body></html>
+})();
+</script></body></html>
