@@ -1118,6 +1118,7 @@ function updateCount(){
  updateBundleControls();
 }
 function list(){
+ $('manualCopy')?.remove();
  const listEl=$('wishlistItems');listEl.replaceChildren();
  const picked=ord.filter(p=>pickedFor(p)>0);
  $('wishlistEmpty').hidden=wanted.size>0;
