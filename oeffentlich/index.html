@@ -1053,7 +1053,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
 <div class="outro-actions"><button class="btn btn-primary" type="button" id="openWishlistOutro">Merkliste ansehen</button><button type="button" class="btn btn-ghost" id="shareLink">Seitenlink teilen ↗</button></div><p id="shareStatus" class="toast" role="status" aria-live="polite"></p></section>
 </main>
 <footer class="footer container"><div><b>🎮 GAME VAULT</b><p>Öffentlicher Katalog einer privaten Spielesammlung. Abbildungen aus dem vorhandenen Bestand, unverbindliche Anfragen. Keine automatischen Bestellungen, Zahlungen oder Reservierungen. Marktwerte sind keine verbindlichen Verkaufspreise.</p><p>Bestandsstand: 24.10.2026 · Marktreferenzstand: 23.10.2026 · Inhalt und Altersfreigabe vor Übergabe prüfen.</p></div>
-<div class="footer-links"><a href="#spiele">Spiele</a><a href="#plattformen">Plattformen</a><a href="#preise">Preisprüfung</a><a href="#partner">Partner</a><a href="#fragen">FAQ</a></div><div class="footer-links"><a href="./datenschutz.html">Datenschutz</a><a href="./hinweise.html">Hinweise</a></div></footer>
+<div class="footer-links"><a href="#spiele">Spiele</a><a href="#plattformen">Plattformen</a><a href="#preise">Preisprüfung</a><a href="#partner">Partner</a><a href="#fragen">FAQ</a></div><div class="footer-links"><a href="./uebersicht.html">Alle Seiten</a><a href="./datenschutz.html">Datenschutz</a><a href="./hinweise.html">Hinweise</a></div></footer>
 <div class="bottom-cta" aria-label="Deine Merkliste"><div class="bottom-inner container"><div class="bottom-desc"><b>Game Vault · <span id="stickyCount">0</span> Spiele gemerkt</b><span>Unverbindlich · keine Bestellung</span></div><button type="button" class="btn btn-primary" id="openWishlistBottom">Merkliste öffnen ↗</button></div></div>
 <dialog id="wishlistDialog" class="wishlist-dialog" aria-labelledby="wishlistTitle"><div style="display:flex;gap:10px;justify-content:space-between;align-items:start"><h2 id="wishlistTitle">Deine Merkliste</h2><button type="button" id="closeWishlist" class="btn btn-ghost btn-mini" aria-label="Merkliste schließen">Schließen ×</button></div>
 <p>Du kannst die Liste vor einer Anfrage ändern. Das ist keine Bestellung und reserviert nichts.</p>
@@ -1157,16 +1157,39 @@ $('clearSelectedGames').addEventListener('click',clearWanted);
 $('clearWishlist').addEventListener('click',()=>{clearWanted();if($('wishlistDialog').open)list();});
 for(const id of ['openWishlistTop','openWishlistHero','openWishlistCatalog','openWishlistOutro','openWishlistBottom','openWishlistBuilder'])$(id)?.addEventListener('click',openList);
 $('closeWishlist').addEventListener('click',()=>$('wishlistDialog').close());
-$('wishlistDialog').addEventListener('click',e=>{if(e.target===$('wishlistDialog'))$('wishlistDialog').close();});
-async function copyText(value){if(navigator.clipboard&&location.protocol==='https:')try{await navigator.clipboard.writeText(value);return true;}catch(_){}
- const field=document.createElement('textarea');field.value=value;field.setAttribute('readonly','');field.style.position='fixed';field.style.top='-1000px';document.body.append(field);field.select();let ok=false;try{ok=document.execCommand('copy')}catch(_){}field.remove();return ok;}
+/* Game Vault buyer-flow repair 2026-10-27 */
+$('wishlistDialog').addEventListener('click',e=>{
+ const dialog=$('wishlistDialog');if(e.target!==dialog)return;
+ const r=dialog.getBoundingClientRect();
+ if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();
+});
+async function copyText(value){
+ const previous=document.activeElement;
+ const obsolete=$('manualCopy');if(obsolete)obsolete.remove();
+ if(navigator.clipboard&&window.isSecureContext){
+  try{await navigator.clipboard.writeText(value);return true;}catch(_){}
+ }
+ // A modal dialog makes the rest of the document inert. Copy inside the dialog.
+ const parent=$('wishlistDialog').open?$('wishlistDialog'):document.body;
+ const field=document.createElement('textarea');field.value=value;
+ field.setAttribute('readonly','');field.setAttribute('aria-label','Text zum manuellen Kopieren');
+ field.style.cssText='position:fixed;top:-1000px;left:0';parent.append(field);
+ field.focus();field.select();field.setSelectionRange(0,value.length);
+ let ok=false;try{ok=document.execCommand('copy')}catch(_){}
+ if(ok){field.remove();if(previous&&previous.isConnected)previous.focus();return true;}
+ // Never claim success when clipboard access is denied. Keep the complete text available.
+ field.id='manualCopy';field.rows=8;
+ field.style.cssText='display:block;width:100%;box-sizing:border-box;margin:12px 0;padding:12px;color:inherit;background:#111a2f;border:1px solid #b5c5df;border-radius:8px';
+ if(parent===document.body)$('shareStatus').insertAdjacentElement('afterend',field);
+ field.focus();field.select();return false;
+}
 $('copyWishlist').addEventListener('click',async()=>{$('wishlistStatus').textContent=await copyText(wishlistText())?'Anfrage kopiert. Du kannst sie über deinen Kontaktweg versenden.':'Kopieren hier nicht verfügbar. Bitte die Merkliste manuell auswählen.';});
 $('shareWishlist').addEventListener('click',async()=>{try{if(navigator.share){await navigator.share({title:'Game-Vault-Anfrage',text:wishlistText()});$('wishlistStatus').textContent='Teilen geöffnet.';}else $('wishlistStatus').textContent=await copyText(wishlistText())?'Anfrage kopiert. Jetzt in deine Nachricht einfügen.':'Bitte Kopieren verwenden.';}catch(e){$('wishlistStatus').textContent=e?.name==='AbortError'?'Teilen abgebrochen.':'Teilen nicht möglich. Bitte kopieren.';}});
 // Link-based wishlists contain only stable inventory UIDs, never personal details.
 // No selection is imported without the visitor's explicit click.
 function makeWishlistUrl(){
  if(!['https:','http:'].includes(location.protocol))return null;
- const u=new URL(location.href);u.searchParams.delete('spiel');u.searchParams.delete('plattform');
+ const u=new URL(location.href);u.search='';
  u.searchParams.set('auswahl',[...wanted].sort().join(','));u.hash='spiele';return u.toString();
 }
 function safeWishlistTextFile(){
@@ -1209,7 +1232,7 @@ $('importSharedWishlist').addEventListener('click',()=>{
  shareBanner.hidden=true;dropSharedParam();openList();
 });
 $('dismissSharedWishlist').addEventListener('click',()=>{shareBanner.hidden=true;dropSharedParam()});
-$('shareLink').addEventListener('click',async()=>{const url=/^https?:$/.test(location.protocol)?location.href.split('#')[0]:'';if(!url){$('shareStatus').textContent='Dieser lokale Entwurf hat noch keinen öffentlich teilbaren Link.';return;}try{if(navigator.share){await navigator.share({title:'Game Vault – gebrauchte Videospiele entdecken',url});$('shareStatus').textContent='Link zum Teilen geöffnet.';}else $('shareStatus').textContent=await copyText(url)?'Webseiten-Link kopiert.':'Webseiten-Link: '+url;}catch(e){$('shareStatus').textContent=e?.name==='AbortError'?'Teilen abgebrochen.':'Webseiten-Link: '+url;}});
+$('shareLink').addEventListener('click',async()=>{const siteUrl=/^https?:$/.test(location.protocol)?new URL(location.href):null;if(siteUrl){siteUrl.search='';siteUrl.hash='';}const url=siteUrl?siteUrl.toString():'';if(!url){$('shareStatus').textContent='Dieser lokale Entwurf hat noch keinen öffentlich teilbaren Link.';return;}try{if(navigator.share){await navigator.share({title:'Game Vault – gebrauchte Videospiele entdecken',url});$('shareStatus').textContent='Link zum Teilen geöffnet.';}else $('shareStatus').textContent=await copyText(url)?'Webseiten-Link kopiert.':'Webseiten-Link: '+url;}catch(e){$('shareStatus').textContent=e?.name==='AbortError'?'Teilen abgebrochen.':'Webseiten-Link: '+url;}});
 initBuilderPlatforms();
 const qs=new URLSearchParams(location.search);const p=qs.get('plattform');if(p&&ord.includes(p))platform=p;
 const uid=qs.get('spiel');if(uid&&byId.has(uid)){$('gameSearch').value=byId.get(uid).dataset.title;platform=byId.get(uid).dataset.platform;}
