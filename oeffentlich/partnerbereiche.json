@@ -1,0 +1,25 @@
+{
+  "status": "INACTIVE_PENDING_APPROVAL",
+  "last_review": "2026-10-27",
+  "slots": [
+    {
+      "id": "partner-01",
+      "label": "Empfehlungspartner",
+      "active": false,
+      "target": null
+    },
+    {
+      "id": "partner-02",
+      "label": "Aktionen & Empfehlungen",
+      "active": false,
+      "target": null
+    },
+    {
+      "id": "partner-03",
+      "label": "Regionale Unternehmen",
+      "active": false,
+      "target": null
+    }
+  ],
+  "conditions": "Keine automatische Casino-Weiterleitung; Aktivierung nur mit Anbieter-, Werbe- und Kontaktdatenfreigabe."
+}

@@ -162,6 +162,14 @@
 @media(max-width:400px){.shared-selection-buttons{flex-direction:column}.shared-selection-buttons .btn{width:100%}.wishlist-dialog .wishlist-actions .btn{flex-basis:100%}}
 @media(prefers-reduced-motion:reduce){.shared-selection-banner *, .wishlist-actions *{transition:none!important}}
 
+
+#partner{scroll-margin-top:96px}.gv-ad-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
+.gv-ad-card{background:linear-gradient(135deg,#192941,#111b33);border:1px solid rgba(124,218,223,.27);border-radius:22px;padding:24px;position:relative;min-height:205px}
+.gv-ad-card h3{margin:15px 0 9px;font-size:clamp(19px,2vw,23px);color:#f4fcff}.gv-ad-card p{margin:0;color:#c5d8e8;line-height:1.65;font-size:14px}
+.gv-ad-label{font-size:11px;font-weight:850;color:#8ce2d8;letter-spacing:.12em;text-transform:uppercase}
+.gv-ad-status{display:inline-flex;border-radius:999px;background:#283b53;border:1px solid #52657c;padding:7px 11px;margin-top:18px;color:#e3edf6;font-size:12px;font-weight:750}
+.gv-ad-foot{font-size:13px;line-height:1.6;color:#b9cddc;margin-top:14px}
+@media(max-width:840px){.gv-ad-grid{grid-template-columns:1fr}.gv-ad-card{min-height:0}}
 </style><style id="game-vault-studio-approved-theme">:root{--mint:#12b9a3;--violet:#7139c9;--lime:#caff85}.hero{background:linear-gradient(115deg,#7139c9 0%,#325cbc 52%,#12b9a3 100%)}.hero h1 em{color:#caff85}.brand{letter-spacing:.012em}
 /* GAME VAULT – V5.0 | behutsame, übergreifende Licht- und Layoutveredelung */
 :root {
@@ -1023,6 +1031,16 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
 
 <!-- Partnerwerbung bleibt bis zur gesonderten Rechts- und Inhaberfreigabe deaktiviert. -->
 
+<section class="section" id="partner" aria-labelledby="partner-title">
+<div class="section-head"><div><span class="kicker">05 / PARTNER & KOOPERATIONEN</span>
+<h2 id="partner-title">Mehr entdecken. Gemeinsam wachsen.</h2>
+<p class="section-desc">Hier entstehen später unabhängige, klar gekennzeichnete Werbeanzeigen, Aktionen und Unternehmensporträts. Der Spielekatalog bleibt ohne Werbeunterbrechung nutzbar.</p></div><span class="section-chip">PARTNERBEREICH</span></div>
+<div class="gv-ad-grid">
+<article class="gv-ad-card"><span class="gv-ad-label">Anzeige · Partnerplatz 01</span><h3>Empfehlungen</h3><p>Dieser Bereich ist für geprüfte Empfehlungsangebote vorgesehen. Ein Ziel-Link wird erst nach Prüfung der Werberechte und Bedingungen aktiviert.</p><span class="gv-ad-status">Derzeit inaktiv</span></article>
+<article class="gv-ad-card"><span class="gv-ad-label">Anzeige · Partnerplatz 02</span><h3>Aktionen & Angebote</h3><p>Ein flexibel erweiterbarer Platz für spätere Aktionen von Freunden und Partnern. Keine versteckten Links oder erzwungenen Weiterleitungen.</p><span class="gv-ad-status">Derzeit inaktiv</span></article>
+<article class="gv-ad-card"><span class="gv-ad-label">Anzeige · Partnerplatz 03</span><h3>Regionale Unternehmen</h3><p>Geplant sind hochwertige Unternehmensvorstellungen mit korrekten Kontaktdaten, bestätigtem Angebot und Zustimmung des jeweiligen Partners.</p><span class="gv-ad-status">Partnerfreigabe ausstehend</span></article>
+</div><p class="gv-ad-foot">Weitere Werbepartner lassen sich ergänzen. Aktuell gibt es keine aktiven Anzeigenlinks, keine Partner-Tracker und keine Werbezwangsschleifen.</p>
+</section>
 <section class="section faq" id="fragen" aria-labelledby="fragen-title"><div class="faq-layout"><div><span class="kicker">06 / FRAGEN</span><h2 id="fragen-title">Gut zu wissen.</h2><p class="section-desc">Transparenz bei gebrauchten Spielen und privaten Anfragen.</p></div><div>
 <details class="qa"><summary>Warum steht bei Spielen „Preis auf Anfrage“?</summary><p>Weil der Verkaufspreis vom tatsächlichen Datenträger, der genauen Ausgabe, dem Zustand und der Vollständigkeit abhängt. Wir veröffentlichen keinen ungesicherten Preis.</p></details>
 <details class="qa"><summary>Was bedeutet ein verlinkter Marktvergleich?</summary><p>Es ist ein datierter Richtwert aus Verkäufen fremder PAL-Ausgaben, teilweise für vollständige Exemplare. Das ist kein verbindlicher Angebotspreis und noch keine Bewertung des hier vorhandenen Exemplars.</p></details>
@@ -1035,7 +1053,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
 <div class="outro-actions"><button class="btn btn-primary" type="button" id="openWishlistOutro">Merkliste ansehen</button><button type="button" class="btn btn-ghost" id="shareLink">Seitenlink teilen ↗</button></div><p id="shareStatus" class="toast" role="status" aria-live="polite"></p></section>
 </main>
 <footer class="footer container"><div><b>🎮 GAME VAULT</b><p>Öffentlicher Katalog einer privaten Spielesammlung. Abbildungen aus dem vorhandenen Bestand, unverbindliche Anfragen. Keine automatischen Bestellungen, Zahlungen oder Reservierungen. Marktwerte sind keine verbindlichen Verkaufspreise.</p><p>Bestandsstand: 24.10.2026 · Marktreferenzstand: 23.10.2026 · Inhalt und Altersfreigabe vor Übergabe prüfen.</p></div>
-<div class="footer-links"><a href="#spiele">Spiele</a><a href="#plattformen">Plattformen</a><a href="#preise">Preisprüfung</a><a href="#fragen">FAQ</a></div></footer>
+<div class="footer-links"><a href="#spiele">Spiele</a><a href="#plattformen">Plattformen</a><a href="#preise">Preisprüfung</a><a href="#partner">Partner</a><a href="#fragen">FAQ</a></div><div class="footer-links"><a href="./datenschutz.html">Datenschutz</a><a href="./hinweise.html">Hinweise</a></div></footer>
 <div class="bottom-cta" aria-label="Deine Merkliste"><div class="bottom-inner container"><div class="bottom-desc"><b>Game Vault · <span id="stickyCount">0</span> Spiele gemerkt</b><span>Unverbindlich · keine Bestellung</span></div><button type="button" class="btn btn-primary" id="openWishlistBottom">Merkliste öffnen ↗</button></div></div>
 <dialog id="wishlistDialog" class="wishlist-dialog" aria-labelledby="wishlistTitle"><div style="display:flex;gap:10px;justify-content:space-between;align-items:start"><h2 id="wishlistTitle">Deine Merkliste</h2><button type="button" id="closeWishlist" class="btn btn-ghost btn-mini" aria-label="Merkliste schließen">Schließen ×</button></div>
 <p>Du kannst die Liste vor einer Anfrage ändern. Das ist keine Bestellung und reserviert nichts.</p>
