@@ -1,0 +1,122 @@
+{
+  "status": "PASS",
+  "passed": 28,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "390px: Popup 01 sichtbar",
+      "passed": true
+    },
+    {
+      "name": "390px: Popup im Ansichtsbereich",
+      "passed": true
+    },
+    {
+      "name": "Erster neutraler Demo-Link korrekt",
+      "passed": true
+    },
+    {
+      "name": "Erster Klick setzt Phase 02",
+      "passed": true
+    },
+    {
+      "name": "Ziel 01 als vollständige HTML-Seite vorhanden",
+      "passed": true
+    },
+    {
+      "name": "Rückkehr-Simulation zeigt Anzeige 02",
+      "passed": true
+    },
+    {
+      "name": "Zweiter Klick setzt Phase 03",
+      "passed": true
+    },
+    {
+      "name": "Ziel 02 als vollständige HTML-Seite vorhanden",
+      "passed": true
+    },
+    {
+      "name": "Zweite Rückkehr-Simulation zeigt Unternehmensanzeige",
+      "passed": true
+    },
+    {
+      "name": "Katalog nach 3 Phasen frei",
+      "passed": true
+    },
+    {
+      "name": "144 echte Spielkarten",
+      "passed": true
+    },
+    {
+      "name": "Katalogsuche arbeitet",
+      "passed": true
+    },
+    {
+      "name": "Spiel zur Merkliste hinzugefügt",
+      "passed": true
+    },
+    {
+      "name": "Werbesimulation neu startbar",
+      "passed": true
+    },
+    {
+      "name": "Werbung überspringbar",
+      "passed": true
+    },
+    {
+      "name": "390px: Seitenbreite ohne Überlauf",
+      "passed": true
+    },
+    {
+      "name": "320px: Popup 01 sichtbar",
+      "passed": true
+    },
+    {
+      "name": "320px: Popup im Ansichtsbereich",
+      "passed": true
+    },
+    {
+      "name": "320px: Seitenbreite ohne Überlauf",
+      "passed": true
+    },
+    {
+      "name": "768px: Popup 01 sichtbar",
+      "passed": true
+    },
+    {
+      "name": "768px: Popup im Ansichtsbereich",
+      "passed": true
+    },
+    {
+      "name": "768px: Seitenbreite ohne Überlauf",
+      "passed": true
+    },
+    {
+      "name": "1365px: Popup 01 sichtbar",
+      "passed": true
+    },
+    {
+      "name": "1365px: Popup im Ansichtsbereich",
+      "passed": true
+    },
+    {
+      "name": "1365px: Seitenbreite ohne Überlauf",
+      "passed": true
+    },
+    {
+      "name": "Keine echten Casino-Domains im HTML",
+      "passed": true
+    },
+    {
+      "name": "Keine Casino-Requests während DOM-Test",
+      "passed": true
+    },
+    {
+      "name": "Keine JavaScript-Fehler",
+      "passed": true
+    }
+  ],
+  "javascript_errors": [],
+  "forbidden_requests": [],
+  "limitation": "Navigationsziele und tatsächliche Android-Zurück-Taste nicht end-to-end getestet: Testbrowser verbietet externe/local Navigation. Phasenwechsel wurden durch DOM-Neuladen bei erhaltenem Sitzungsstatus geprüft."
+}

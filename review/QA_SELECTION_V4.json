@@ -1,0 +1,520 @@
+{
+  "version": "game-vault-selection-v4",
+  "scope": "User-facing bulk/individual/platform selection regression for both public V3 and interactive demo V4",
+  "checks": [
+    {
+      "check": "werbe-ablauf-demo.html has 144 requestable cards",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html shows 8 bulk platform controls",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html initial selection empty",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html first page shows only 12 cards",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html all buttons keyboard actionable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html initial filter all",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html public price policy unchanged",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html Xbox 360 all 55 selected",
+      "passed": true,
+      "detail": "55"
+    },
+    {
+      "check": "werbe-ablauf-demo.html Xbox 360 state all",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html all 55 selected independently of pagination",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html Xbox 360 persisted in storage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html cross-platform Xbox+PS2=94",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html switching platform filter does not delete selection",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html selected Xbox can be removed individually",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html one Xbox removed -> 93",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html partial Xbox state",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html partial Xbox completed -> 94",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html Xbox group removed, PS2 retained -> 39",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html search filters",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html search hits bulk-added",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html toggle search hits removes only matches",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html all requestable 144 selected",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html all selected button disabled",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html every platform reports all",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html wishlist dialog opens",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html wishlist lists exactly 144 game item controls",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html wishlist grouped by 8 platforms",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html wishlist copy keeps no final sale prices",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html remove PSP group leaves 107",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html other groups preserved after removing PSP",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html clear all after confirmation",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html empty selection correct",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html empty clears bulk button state",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html PS5 one title selected",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Ad demo can restart without clearing selection",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Ad demo skip maintains selected game",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "werbe-ablauf-demo.html no JavaScript errors",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "check": "werbe-ablauf-demo.html mobile viewport no horizontal overflow",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html has 144 requestable cards",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html shows 8 bulk platform controls",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html initial selection empty",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html first page shows only 12 cards",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html all buttons keyboard actionable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html initial filter all",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html public price policy unchanged",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html Xbox 360 all 55 selected",
+      "passed": true,
+      "detail": "55"
+    },
+    {
+      "check": "verkauf.html Xbox 360 state all",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html all 55 selected independently of pagination",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html Xbox 360 persisted in storage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html cross-platform Xbox+PS2=94",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html switching platform filter does not delete selection",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html selected Xbox can be removed individually",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html one Xbox removed -> 93",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html partial Xbox state",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html partial Xbox completed -> 94",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html Xbox group removed, PS2 retained -> 39",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html search filters",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html search hits bulk-added",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html toggle search hits removes only matches",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html all requestable 144 selected",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html all selected button disabled",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html every platform reports all",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html wishlist dialog opens",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html wishlist lists exactly 144 game item controls",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html wishlist grouped by 8 platforms",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html wishlist copy keeps no final sale prices",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html remove PSP group leaves 107",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html other groups preserved after removing PSP",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html clear all after confirmation",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html empty selection correct",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html empty clears bulk button state",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html PS5 one title selected",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "verkauf.html no JavaScript errors",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "check": "verkauf.html mobile viewport no horizontal overflow",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 320px no scroll overflow",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 320px build control visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 320px group selection correct",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 320px no page errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 360px no scroll overflow",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 360px build control visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 360px group selection correct",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 360px no page errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 390px no scroll overflow",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 390px build control visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 390px group selection correct",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 390px no page errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 430px no scroll overflow",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 430px build control visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 430px group selection correct",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 430px no page errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 768px no scroll overflow",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 768px build control visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 768px group selection correct",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 768px no page errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 1024px no scroll overflow",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 1024px build control visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 1024px group selection correct",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 1024px no page errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 1365px no scroll overflow",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 1365px build control visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 1365px group selection correct",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "responsive 1365px no page errors",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "page_errors": [],
+  "passed": 102,
+  "failed": 0,
+  "status": "PASS"
+}
