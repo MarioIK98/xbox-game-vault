@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://marioik98.github.io/xbox-game-vault/sitemap.xml
