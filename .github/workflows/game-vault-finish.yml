@@ -1,0 +1,38 @@
+name: Game Vault finish verification
+on:
+  push:
+    branches: [fix/game-vault-finish-20261027]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  verify:
+    if: github.ref == 'refs/heads/fix/game-vault-finish-20261027'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install pinned browser-test dependency
+        run: |
+          python -m pip install playwright==1.57.0
+          python -m playwright install --with-deps chromium
+      - name: Apply snapshot-guarded repair
+        run: python tools/apply_finish_patch.py
+      - name: Verify actual HTTP, buyer flow and offline pages
+        run: python tools/test_game_vault.py --out verification
+      - name: Save tested repair only on this review branch
+        run: |
+          git add -- oeffentlich/index.html
+          if ! git diff --cached --quiet; then
+            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Fix wishlist dialog, clipboard fallback and share URL isolation'
+            git push origin HEAD:fix/game-vault-finish-20261027
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: game-vault-finish-evidence
+          path: verification/
+          retention-days: 14
