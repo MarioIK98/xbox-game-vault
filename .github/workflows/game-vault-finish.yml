@@ -1,13 +1,58 @@
-name: Game Vault finish verification
+name: Game Vault quality and discovery
 on:
   push:
-    branches: [fix/game-vault-finish-20261027]
+    branches: [main, fix/search-discovery-20261028]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
+  workflow_run:
+    workflows: [pages build and deployment]
+    types: [completed]
 permissions:
-  contents: write
+  contents: read
+concurrency:
+  group: game-vault-quality-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: false
 jobs:
+  prepare-search:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/fix/search-discovery-20261028'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install the existing pinned browser toolchain
+        run: |
+          python -m pip install playwright==1.57.0
+          python -m playwright install --with-deps chromium
+      - name: Apply guarded SEO migration
+        run: python tools/apply_search_patch.py
+      - name: Verify SEO and immutable catalogue
+        run: python tools/check_search.py --reference fa0827ee5e05af7e445618a86c1319686e7de88c --out verification/search.json
+      - name: Regression test HTTP and browser functionality
+        run: python tools/test_game_vault.py --out verification/browser
+      - name: Save exactly the tested public files on the review branch
+        run: |
+          git add -- index.html sitemap.xml 2ff40315ae4ecce926bea36e1a26e5d9.txt oeffentlich/index.html oeffentlich/uebersicht.html oeffentlich/sitemap.xml oeffentlich/robots.txt oeffentlich/sw.js oeffentlich/plattform/*.html
+          if ! git diff --cached --quiet; then
+            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Apply tested search metadata, canonical links and ten-page sitemap'
+            git push origin HEAD:fix/search-discovery-20261028
+          fi
+          git rev-parse HEAD > verification/tested-commit.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: game-vault-search-review
+          path: verification/
+          retention-days: 14
   verify:
-    if: github.ref == 'refs/heads/fix/game-vault-finish-20261027'
+    if: github.event_name != 'workflow_run' && !(github.event_name == 'push' && github.ref == 'refs/heads/fix/search-discovery-20261028')
     runs-on: ubuntu-24.04
     timeout-minutes: 12
     steps:
@@ -15,24 +60,35 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Install pinned browser-test dependency
+      - name: Install the existing pinned browser toolchain
         run: |
           python -m pip install playwright==1.57.0
           python -m playwright install --with-deps chromium
-      - name: Apply snapshot-guarded repair
-        run: python tools/apply_finish_patch.py
-      - name: Verify actual HTTP, buyer flow and offline pages
-        run: python tools/test_game_vault.py --out verification
-      - name: Save tested repair only on this review branch
-        run: |
-          git add -- oeffentlich/index.html
-          if ! git diff --cached --quiet; then
-            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Fix wishlist dialog, clipboard fallback and share URL isolation'
-            git push origin HEAD:fix/game-vault-finish-20261027
-          fi
+      - run: python tools/check_search.py --out verification/search.json
+      - run: python tools/test_game_vault.py --out verification/browser
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: game-vault-finish-evidence
+          name: game-vault-quality
+          path: verification/
+          retention-days: 14
+  live-discovery:
+    if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Verify exact deployed files and notify changed URLs only
+        run: python tools/check_search.py --live --notify-indexnow --changed-only --out verification/live-search.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: game-vault-live-discovery
           path: verification/
           retention-days: 14
