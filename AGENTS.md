@@ -59,3 +59,27 @@ Return:
 - rollback/recovery note
 - reusable learning
 - what the canonical project chat must decide next
+
+
+## Finish-State / Best-Path
+
+Für wichtige oder komplexe Aufgaben vor Umsetzung bestimmen:
+- TARGET_STATE
+- EXPECTED_OUTPUT
+- ACCEPTANCE_CRITERIA
+- REQUIRED_EVIDENCE
+- KNOWN_CONSTRAINTS
+
+Wähle danach den kleinsten Engineering-Weg, der diese Anforderungen zuverlässig erfüllt.
+Prüfe vorhandenen Code, Tests, Scripts, Validatoren, Workflows und frühere Fehlerlektionen vor Neubau.
+
+BESTAND VOR NEUBAU.
+ZIEL VOR TOOL.
+QUALITÄT VOR AKTIVITÄT.
+EVIDENZ VOR SELBSTSICHERHEIT.
+
+Bei wiederholtem Fehler ohne neue Information:
+STOP CURRENT ROUTE → ROOT CAUSE → ALTERNATIVE ROUTE → CONTINUE.
+
+Keine unnötigen Refactorings, neuen Worktrees, Tools oder Vollscans ohne materiellen Nutzen.
+Abschluss nur bei erfüllten Akzeptanzkriterien, Tests/Evidenz und sauber dokumentierten offenen Punkten.
