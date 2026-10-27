@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="de"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#090e20"><meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#111a2f"><meta name="color-scheme" content="dark">
 <title>Gebrauchte Videospiele kaufen &amp; anfragen | Xbox 360, PS2, PSP – Game Vault</title><meta name="description" content="Gebrauchte Xbox-360-, PlayStation-, PSP-, Nintendo- und PC-Spiele aus privater Sammlung entdecken. 144 Titel unverbindlich anfragen, Wunschliste zusammenstellen; ungeprüfte Preise auf Anfrage.">
 <meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://marioik98.github.io/xbox-game-vault/oeffentlich/"><link rel="alternate" hreflang="de-DE" href="https://marioik98.github.io/xbox-game-vault/oeffentlich/">
 <meta property="og:type" content="website"><meta property="og:locale" content="de_DE"><meta property="og:site_name" content="Game Vault">
@@ -162,14 +162,82 @@
 @media(max-width:400px){.shared-selection-buttons{flex-direction:column}.shared-selection-buttons .btn{width:100%}.wishlist-dialog .wishlist-actions .btn{flex-basis:100%}}
 @media(prefers-reduced-motion:reduce){.shared-selection-banner *, .wishlist-actions *{transition:none!important}}
 
-</style><style id="game-vault-studio-approved-theme">:root{--mint:#12b9a3;--violet:#7139c9;--lime:#caff85}.hero{background:linear-gradient(115deg,#7139c9 0%,#325cbc 52%,#12b9a3 100%)}.hero h1 em{color:#caff85}.brand{letter-spacing:.012em}</style><link rel="manifest" href="./site.webmanifest"><link rel="icon" type="image/png" sizes="192x192" href="./icons/game-vault-192.png"><link rel="apple-touch-icon" href="./icons/game-vault-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="application-name" content="Game Vault"></head><body><a class="skip" href="#main">Zum Inhalt springen</a>
+</style><style id="game-vault-studio-approved-theme">:root{--mint:#12b9a3;--violet:#7139c9;--lime:#caff85}.hero{background:linear-gradient(115deg,#7139c9 0%,#325cbc 52%,#12b9a3 100%)}.hero h1 em{color:#caff85}.brand{letter-spacing:.012em}
+/* GAME VAULT – V5.0 | behutsame, übergreifende Licht- und Layoutveredelung */
+:root {
+ --bg:#111a2f; --panel:#202d49; --panel2:#293a58;
+ --text:#f7faff; --muted:#cedcf0; --subtle:#b0c4df;
+ --line:rgba(198,230,255,.235); --mint:#7af5d9;
+ --lime:#d8ff9d; --violet:#c5a7ff;
+}
+body {
+ background:radial-gradient(ellipse 76% 46% at 100% -5%,rgba(116,65,192,.30),transparent 73%),
+ radial-gradient(ellipse 65% 47% at -10% 16%,rgba(29,151,160,.19),transparent 74%),
+ linear-gradient(180deg,#141f37 0%,var(--bg) 55%,#121d35 100%);
+}
+.topbar {background:rgba(18,27,47,.95);border-bottom-color:rgba(201,230,255,.19)}
+.brand{color:#f3fffb}.navlinks a:not(.navbutton){color:#dbe9fa}
+.hero{
+ min-height:472px;padding:46px 50px;
+ background:linear-gradient(112deg,#6b36b8 0%,#4265c2 40%,#178ca9 72%,#0cb79e 100%);
+ box-shadow:0 24px 58px rgba(4,13,28,.43);
+}
+.hero h1{font-size:clamp(40px,5.15vw,65px);line-height:1.055;letter-spacing:-.048em}
+.hero h1 em{color:#e0ffa0}
+.hero-lead{color:#f7fcff;line-height:1.56}
+.hero-trust li{background:#122c4b59;border-color:#ffffff78}
+.eyebrow{color:#f5faff}
+.btn-primary{background:linear-gradient(115deg,#dcffa3 0%,#86f6cf 52%,#60e9d8 100%);box-shadow:0 10px 25px rgba(73,224,188,.21)}
+.btn-ghost{background:#ffffff1d;border-color:#e5f7ff88}
+.stat{background:linear-gradient(155deg,#23364e,#273150);border-color:rgba(198,225,255,.24);box-shadow:0 8px 28px rgba(4,10,25,.16)}
+.stat.primary{background:linear-gradient(145deg,#1c4950,#263e59);border-color:#91efcf85}
+.stat.primary strong{color:#ddffad}
+.kicker{color:#91f7df}
+.section-head h2{color:#f8fbff}
+.section-chip{color:#daebf7;background:#22355188}
+.catalog-toolbar{background:linear-gradient(135deg,#23344e,#232c47);border-color:rgba(186,218,250,.26);box-shadow:0 8px 34px #040b1b33}
+.searchbox input{background:#182640;color:#f8fdff;border-color:#bfdbfb77}
+.searchbox input::placeholder{color:#bdcce1}
+.sort{background:#1d2d4a;color:#f1faff;border-color:#bfdbfb77}
+.platforms button{background:#2a3a58;border-color:#c7e7ff55;color:#ecf4ff}
+.platforms button[aria-pressed='true']{background:#d8ff9d;color:#162728;border-color:#d8ff9d}
+.game{background:linear-gradient(160deg,#253550,#202c48);border-color:#cae3ff3a;box-shadow:0 10px 23px #080e2133}
+.game:hover{transform:translateY(-4px);box-shadow:0 15px 28px #030b204a;border-color:#9af8ddab}
+.game-visual{background:linear-gradient(145deg,#333965,#204455)}
+.platform-link{background:linear-gradient(140deg,#263b57,#282f51);border-color:#c9eaff46;box-shadow:0 8px 24px #0711282a}
+.platform-link:hover{border-color:#a0f4da;transform:translateY(-2px)}
+.platform-intro{background:linear-gradient(130deg,#263956,#262f52);border-color:#a5e6ec65}
+.platform-titles li{background:#263550;border-color:#c9e6ff40}
+.price-panel{background:linear-gradient(132deg,#1f4555 0%,#2e385c 55%,#4c3463 100%);border-color:#a1f7df82}
+.price-panel p{color:#e7f2ff}.info-tile{background:#26364edb;border-color:#cae7ff44}
+.package-builder{background:linear-gradient(135deg,#223d55 0%,#283351 62%,#32365e 100%);border-color:#99f5d98a}
+.builder-platform-button{background:linear-gradient(160deg,#223451,#30395f);border-color:#c1ddff73}
+.builder-platform-button:hover{background:#35476b}
+.builder-count{background:#1e324c;border-color:#88f7db6e}
+.filtered-bulk{background:#1b2c46}
+.step{background:linear-gradient(145deg,#253953,#2a314f);border-color:#c5e3ff38}
+.steps .step-number{color:#c6ffb5}
+.qa{background:#22324f;border-color:#c8e3ff35}
+.bottom-cta{background:rgba(21,32,55,.96);border-color:#88f5d76c}
+.footer{color:#c3d7ea;border-top-color:#c9ebff45}
+.footer a{color:#e4faff}
+.wishlist-dialog{background:#1d2b46;color:#f7fbff;border-color:#c3e9ff66}
+.wishlist-group{background:#253650}
+.shared-selection-banner{background:linear-gradient(125deg,#21435b,#30395e);border-color:#a4f5dbad}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #d9ff99;outline-offset:3px}
+@media(max-width:1020px){.hero{min-height:440px;padding:41px 37px}.hero h1{font-size:clamp(39px,5.25vw,60px)}}
+@media(max-width:730px){.hero{min-height:0;padding:29px 25px 24px}.hero h1{font-size:clamp(36px,7.8vw,51px);line-height:1.07}.hero-art{height:143px;margin-top:5px}.hero-lead{font-size:14px;line-height:1.56}.hero-actions{margin:19px 0 16px}.stats{margin-top:14px;margin-bottom:36px}.section{padding-bottom:38px}}
+@media(max-width:465px){.hero{padding:25px 21px 23px}.hero h1{font-size:clamp(34px,9vw,42px);letter-spacing:-.045em}.hero-art{height:115px}.eyebrow{font-size:10px;letter-spacing:.13em}.hero-trust li{font-size:10px;padding:7px 10px}.hero-actions{gap:9px}.stats{margin-bottom:27px}.catalog-toolbar{padding:14px}.game{box-shadow:none}}
+@media(prefers-reduced-motion:reduce){.game:hover,.platform-link:hover{transform:none}}
+
+</style><link rel="manifest" href="./site.webmanifest"><link rel="icon" type="image/png" sizes="192x192" href="./icons/game-vault-192.png"><link rel="apple-touch-icon" href="./icons/game-vault-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="application-name" content="Game Vault"></head><body><a class="skip" href="#main">Zum Inhalt springen</a>
 <header class="topbar"><nav class="nav container" aria-label="Hauptnavigation"><a href="#start" class="brand"><span class="brand-symbol" aria-hidden="true">🎮</span> Game Vault</a>
 <div class="navlinks"><a href="#spiele">Spiele entdecken</a><a href="#plattformen">Plattformen</a><a href="#preise">Preise &amp; Prüfung</a><button class="btn btn-primary btn-mini navbutton" type="button" id="openWishlistTop">Merkliste <span class="button-count" id="wishCountTop">0</span></button></div></nav></header><main class="container" id="main">
 <section class="hero" id="start" aria-labelledby="hero-title"><div class="hero-grid"><div>
 <div class="eyebrow">🎮 ÖFFENTLICHER SPIELEKATALOG · 8 PLATTFORMEN</div>
 <h1 id="hero-title">Gebrauchte Spiele entdecken. <em>Deine Favoriten merken.</em></h1>
-<p class="hero-lead">Xbox 360, PlayStation 2, PSP und mehr: Durchsuche eine private Sammlung, vergleiche vorhandene Markthinweise und erstelle in Sekunden deine unverbindliche Merkliste.</p>
-<div class="hero-actions"><a class="btn btn-primary" href="#spiele">Jetzt Spiele entdecken ↓</a><button type="button" class="btn btn-ghost" id="openWishlistHero">Meine Merkliste <span class="button-count" id="wishCountHero">0</span></button></div>
+<p class="hero-lead">Suche einzelne Spiele, wähle komplette Konsolenplattformen oder kombiniere beides. Stelle dein persönliches Wunschpaket zusammen und teile die Liste – kostenlos und unverbindlich.</p>
+<div class="hero-actions"><a class="btn btn-primary" href="#spiele">Spiele auswählen ↓</a><button type="button" class="btn btn-ghost" id="openWishlistHero">Meine Merkliste <span class="button-count" id="wishCountHero">0</span></button></div>
 <ul class="hero-trust"><li>✓ Frei nach Spielen suchen</li><li>✓ Preise nur nach Einzelprüfung</li><li>✓ Kein Kaufzwang</li></ul>
 </div><div class="hero-art" aria-label="Originalfotos aus der privaten Spielesammlung"><span class="orbit" aria-hidden="true"></span>
 <img class="cover a" alt="Bestandsfoto: Obscure II für PlayStation 2" src="data:image/webp;base64,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" width="180" height="245">
@@ -179,7 +247,7 @@
 <div class="stats" aria-label="Spielebestand"><div class="stat"><strong>147</strong><small>Inventarpositionen erfasst</small></div>
 <div class="stat"><strong>144</strong><small>Positionen unverbindlich anfragbar</small></div><div class="stat"><strong>8</strong><small>Plattformen</small></div>
 <div class="stat primary"><strong>Auf Anfrage</strong><small>Einzelpreise statt pauschalem Gesamtwert</small></div></div>
-<section class="section" id="spiele" aria-labelledby="spiele-title"><div class="section-head"><div><span class="kicker">01 / ALLE SPIELE</span><h2 id="spiele-title">Finde dein nächstes Spiel.</h2><p class="section-desc">Wähle komplette Konsolenplattformen, einzelne Titel oder jede beliebige Mischung. Jede Auswahl bleibt unverbindlich.</p></div><span class="section-chip">144 anfragbare Positionen</span></div>
+<section class="section" id="spiele" aria-labelledby="spiele-title"><div class="section-head"><div><span class="kicker">01 / ALLE SPIELE</span><h2 id="spiele-title">Finde dein nächstes Spiel.</h2><p class="section-desc">Wähle komplette Konsolenplattformen, einzelne Titel oder jede beliebige Mischung. Jede Auswahl bleibt unverbindlich.</p></div><span class="section-chip">144 Spiele zur Auswahl</span></div>
 <aside class="shared-selection-banner" id="sharedSelectionBanner" hidden aria-labelledby="sharedSelectionTitle">
   <div class="shared-selection-info"><span class="shared-selection-kicker">🔗 GEMEINSAME SPIELEAUSWAHL</span>
     <strong id="sharedSelectionTitle">Du hast eine Wunschliste über einen Link erhalten.</strong>
@@ -940,7 +1008,7 @@
 <button class="btn btn-primary" type="button" id="openWishlistCatalog">Merkliste öffnen <span class="button-count" id="wishCountCatalog">0</span></button></div>
 </section>
 <section class="section" id="plattformen" aria-labelledby="plattformen-title"><div class="section-head"><div><span class="kicker">02 / SPIELEPLATTFORMEN</span><h2 id="plattformen-title">Nach Konsole stöbern.</h2><p class="section-desc">Wähle Plattformen oben komplett für dein Wunschpaket aus oder stöbere auf den einzelnen Plattformseiten. Einzelspiele kannst du jederzeit hinzufügen oder entfernen.</p></div></div>
-<div class="platform-links"><a class="platform-link" href="plattform/xbox-360.html"><b>Xbox 360</b><small>55 anfragbare Positionen · Plattform ansehen ↗</small></a><a class="platform-link" href="plattform/original-xbox.html"><b>Original Xbox</b><small>7 anfragbare Positionen · Plattform ansehen ↗</small></a><a class="platform-link" href="plattform/playstation-2.html"><b>PlayStation 2</b><small>39 anfragbare Positionen · Plattform ansehen ↗</small></a><a class="platform-link" href="plattform/psp.html"><b>PlayStation Portable (PSP)</b><small>37 anfragbare Positionen · Plattform ansehen ↗</small></a><a class="platform-link" href="plattform/playstation-4.html"><b>PlayStation 4</b><small>3 anfragbare Positionen · Plattform ansehen ↗</small></a><a class="platform-link" href="plattform/playstation-5.html"><b>PlayStation 5</b><small>1 anfragbare Positionen · Plattform ansehen ↗</small></a><a class="platform-link" href="plattform/nintendo-ds.html"><b>Nintendo DS</b><small>1 anfragbare Positionen · Plattform ansehen ↗</small></a><a class="platform-link" href="plattform/pc.html"><b>PC</b><small>1 anfragbare Positionen · Plattform ansehen ↗</small></a></div></section>
+<div class="platform-links"><a class="platform-link" href="plattform/xbox-360.html"><b>Xbox 360</b><small>55 anfragbare Positionen · Plattform ansehen ↗</small></a><a class="platform-link" href="plattform/original-xbox.html"><b>Original Xbox</b><small>7 anfragbare Positionen · Plattform ansehen ↗</small></a><a class="platform-link" href="plattform/playstation-2.html"><b>PlayStation 2</b><small>39 anfragbare Positionen · Plattform ansehen ↗</small></a><a class="platform-link" href="plattform/psp.html"><b>PlayStation Portable (PSP)</b><small>37 anfragbare Positionen · Plattform ansehen ↗</small></a><a class="platform-link" href="plattform/playstation-4.html"><b>PlayStation 4</b><small>3 anfragbare Positionen · Plattform ansehen ↗</small></a><a class="platform-link" href="plattform/playstation-5.html"><b>PlayStation 5</b><small>1 anfragbare Position · Plattform ansehen ↗</small></a><a class="platform-link" href="plattform/nintendo-ds.html"><b>Nintendo DS</b><small>1 anfragbare Position · Plattform ansehen ↗</small></a><a class="platform-link" href="plattform/pc.html"><b>PC</b><small>1 anfragbare Position · Plattform ansehen ↗</small></a></div></section>
 <section class="section" id="preise" aria-labelledby="preise-title"><div class="section-head"><div><span class="kicker">03 / FAIRE MARKTWERTE</span><h2 id="preise-title">Echte Vergleiche. Keine Fantasiepreise.</h2><p class="section-desc">Jedes Spiel wird anhand der tatsächlichen Ausgabe, des Spielmediums, des Zustands und passender Marktvergleiche bewertet. Bis zur Einzelprüfung und Freigabe gilt: Preis auf Anfrage.</p></div></div>
 <div class="price-explainer"><div class="price-panel"><span class="kicker">SO ENTSTEHEN PREISE</span><h3>Erst prüfen, dann beziffern.</h3>
 <p>Für normale Spiele verwenden wir belastbare Marktvergleiche zur Orientierung. Höherwertige, seltene oder nicht eindeutig belegte Titel bleiben <strong>„Preis auf Anfrage“</strong>, bis Datenträger, Edition, Vollständigkeit und Zustand kontrolliert sind.</p>
@@ -960,7 +1028,7 @@
 <details class="qa"><summary>Was bedeutet ein verlinkter Marktvergleich?</summary><p>Es ist ein datierter Richtwert aus Verkäufen fremder PAL-Ausgaben, teilweise für vollständige Exemplare. Das ist kein verbindlicher Angebotspreis und noch keine Bewertung des hier vorhandenen Exemplars.</p></details>
 <details class="qa"><summary>Sind alle Spiele vollständig und getestet?</summary><p>Nein. Bei mehreren Titeln sind Disc oder UMD, Anleitung oder Funktionsprüfung noch offen. Fotofunde sind ausdrücklich nur unter Vorbehalt anfragbar.</p></details>
 <details class="qa"><summary>Wird durch Merken ein Spiel reserviert?</summary><p>Nein. Die Liste wird nur auf deinem Gerät verwaltet. Sie ist weder Bestellung noch Reservierung und löst keine Zahlung aus.</p></details>
-<details class="qa"><summary>Wie kann ich meine Auswahl teilen?</summary><p>Öffne die Merkliste und kopiere den Anfragetext oder einen Link mit deiner Auswahl. Diesen kannst du in deinem Messenger teilen. Ohne eingerichteten öffentlichen Kontaktweg wird nichts automatisch versendet.</p></details>
+<details class="qa"><summary>Wie kann ich meine Auswahl teilen?</summary><p>Öffne die Merkliste und kopiere den Anfragetext oder einen Link mit deiner Auswahl. Diesen kannst du in deinem Messenger teilen. Bis ein öffentlicher Kontaktweg freigegeben ist, kannst du deine Liste speichern oder über deinen bestehenden Nachrichtenkontakt weitergeben. Es wird nichts automatisch versendet.</p></details>
 <details class="qa"><summary>Kann ich den Link an andere weitergeben?</summary><p>Ja. Die öffentliche Webseite ist zum Teilen gedacht. Jede persönliche Merkliste bleibt lokal, bis sie aktiv geteilt wird. Ein geteilter Auswahl-Link kann von anderen bewusst übernommen werden; Verfügbarkeit wird stets gesondert geprüft.</p></details>
 </div></div></section>
 <section class="outro"><span class="kicker">DEINE SPIELEAUSWAHL</span><h2>Entdecken. Merken. Unverbindlich anfragen.</h2><p>Keine Anmeldung. Keine versteckten Festpreise. Deine Auswahl bleibt auf deinem Gerät, bis du sie selbst teilst.</p>
@@ -997,7 +1065,8 @@ function wishlistText(){
  for(const p of active){const selection=grouped.get(p).filter(x=>wanted.has(x.dataset.uid)).sort((a,b)=>a.dataset.title.localeCompare(b.dataset.title,'de'));
  message+=`\n${p} (${selection.length} von ${totalFor(p)})\n`;
  for(const [i,x] of selection.entries()){message+=`${i+1}. ${x.dataset.title} · ${x.dataset.edition||'Edition zu prüfen'} [${x.dataset.uid}]\n`;}}
- return message+'\nAlle Positionen sind zunächst nur angefragt. Bitte Verfügbarkeit, Originaldatenträger, Edition, Vollständigkeit, Zustand, Altersfreigabe sowie Einzel-/Paketpreise vor einer Zusage prüfen. Dies ist keine Bestellung oder Reservierung.\n';}
+ return message+'\nAlle Positionen sind zunächst nur angefragt. Bitte Verfügbarkeit, Originaldatenträger, Edition, Vollständigkeit, Zustand, Altersfreigabe sowie Einzel-/Paketpreise vor einer Zusage prüfen. Dies ist keine Bestellung oder Reservierung.\n';
+}
 function setWantedFor(items,flag){for(const x of items){if(flag)wanted.add(x.dataset.uid);else wanted.delete(x.dataset.uid);}save();updateCount();}
 function clearWanted(){if(!wanted.size)return;if(!confirm(`Möchtest du alle ${wanted.size} gemerkten Positionen aus deiner Merkliste entfernen?`))return;wanted.clear();save();updateCount();if($('wishlistDialog').open)list();}
 function initBuilderPlatforms(){const grid=$('bundlePlatformGrid');for(const p of ord){const members=grouped.get(p);if(!members?.length)continue;

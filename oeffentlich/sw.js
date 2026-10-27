@@ -1,4 +1,4 @@
-const VERSION='gv-public-2026-10-26-v2';
+const VERSION='gv-public-2026-10-27-v5';
 const PRECACHE=['./','./index.html','./site.webmanifest','./og-game-vault.jpg',
  './icons/game-vault-192.png','./icons/game-vault-512.png',
  './plattform/xbox-360.html','./plattform/original-xbox.html','./plattform/playstation-2.html',
@@ -10,6 +10,7 @@ self.addEventListener('fetch',e=>{
   if(e.request.method!=='GET')return;
   const url=new URL(e.request.url);
   if(url.origin!==self.location.origin||!url.pathname.includes('/oeffentlich/'))return;
+  // Selection IDs must not create an unlimited number of offline cache keys.
   const normalized=new Request(url.origin+url.pathname,{method:'GET'});
   e.respondWith(fetch(e.request).then(response=>{
     if(response.ok&&response.type==='basic'){
