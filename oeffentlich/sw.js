@@ -1,7 +1,7 @@
 'use strict';
 const SCOPE=new URL('./',self.location.href);
 const PREFIX='gv-public-'+encodeURIComponent(SCOPE.pathname)+'-';
-const VERSION=PREFIX+'2026-10-28-sharing-ui-v1';
+const VERSION=PREFIX+'2026-10-28-brand-v1';
 const PRECACHE=['./','./index.html','./site.webmanifest','./og-game-vault.jpg',
  './icons/game-vault-192.png','./icons/game-vault-512.png',
  './plattform/xbox-360.html','./plattform/original-xbox.html','./plattform/playstation-2.html',
