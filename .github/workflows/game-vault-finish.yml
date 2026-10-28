@@ -33,6 +33,8 @@ jobs:
         run: python tools/prepare_security_release.py --check
       - name: Check canonical pages and search metadata
         run: python tools/check_search.py --out verification/search.json
+      - name: Verify sales discovery pages and immutable catalogue
+        run: python tools/check_sales_accelerator.py --out verification/sales-discovery.json
       - name: Buyer-flow, HTTP and offline regression tests
         run: python tools/test_game_vault.py --out verification/browser
       - name: Isolated browser security and input-validation tests
