@@ -87,11 +87,13 @@ def build(mode: str, origin: str | None, dest: Path) -> dict:
         raise ValueError('Preview does not accept a production origin')
     else:
         replacement = PUBLIC_SOURCE
-    dest = dest.resolve()
-    if dest != (ROOT / 'dist').resolve():
+    # Reject symlinks before path resolution to avoid deleting anything outside dist.
+    dest = dest.absolute()
+    if dest != (ROOT / 'dist').absolute():
         raise ValueError('Only the repository-local dist directory may be replaced')
+    if dest.is_symlink():
+        raise ValueError('Refusing to follow a symlinked output directory')
     if dest.exists():
-        if dest.is_symlink():raise ValueError('Refusing to follow a symlinked output directory')
         shutil.rmtree(dest)
     manifest = []
     for rel in [*ROOT_FILES, *('oeffentlich/' + name for name in PUBLIC_FILES)]:
