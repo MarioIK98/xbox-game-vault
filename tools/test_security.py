@@ -34,8 +34,8 @@ def main():
   check('Referrer reduction: '+rel,meta.refs==['no-referrer'])
  for p,text in sharing_files(ROOT).items():check('Fresh generated material: '+p.name,p.read_text()==text)
  data=json.loads((ROOT/'oeffentlich/reichweite/links.json').read_text())
- check('Ten approved sharing records',len(data['items'])==10 and data['automatic_sending'] is False)
- check('RSS parses and contains ten entries',len(ET.parse(ROOT/'oeffentlich/reichweite/feed.xml').findall('./channel/item'))==10)
+ check('Eleven approved sharing records',len(data['items'])==11 and data['automatic_sending'] is False)
+ check('RSS parses and contains eleven entries',len(ET.parse(ROOT/'oeffentlich/reichweite/feed.xml').findall('./channel/item'))==11)
  errors=[];requests=[];popups=[];not_tested=[]
  with sync_playwright() as pw:
   exe=shutil.which('chromium') or shutil.which('google-chrome')
