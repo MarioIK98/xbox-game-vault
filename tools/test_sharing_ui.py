@@ -32,7 +32,7 @@ def main():
   try:
    page.goto(BASE+'oeffentlich/teilen.html',wait_until='networkidle')
    check('Controls initialized under CSP',page.locator('#copyPost').is_enabled())
-   check('Ten actual catalogue destinations',page.locator('#pageChoice option').count()==len(records)==10)
+   check('Eleven actual catalogue destinations',page.locator('#pageChoice option').count()==len(records)==11)
    check('Preview image actually decoded',page.locator('.preview img').evaluate('(x)=>x.complete&&x.naturalWidth>0'))
    check('Downloads initially secondary',not page.locator('.advanced').evaluate('(x)=>x.open'))
    for i,r in enumerate(records):
