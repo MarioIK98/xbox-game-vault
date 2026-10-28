@@ -31,6 +31,10 @@ def main():
  ck('144 detail URLs in sitemap',sum('/oeffentlich/spiele/' in x for x in urls)==144)
  ck('Collection landing page in sitemap',any(x.endswith('/oeffentlich/spiele-sammlung.html') for x in urls))
  collection=(PUBLIC/'spiele-sammlung.html').read_text();ck('Collection page exposes full 144-game bundle',collection.count('Gesamten Bestand vormerken')==1 and '144 gebrauchte Videospiele' in collection)
+ overview=(PUBLIC/'uebersicht.html').read_text()
+ for label,url in [('eBay PS1','https://www.ebay.de/itm/820268079932'),('Kleinanzeigen PS1','https://www.kleinanzeigen.de/s-anzeige/3548893324')]:
+  ck(label+' link visible in catalogue, collection and overview',all(url in page for page in (current,collection,overview)))
+ ck('PS1 sale clearly separate from 144 games','PS1-Konsole' in current and 'Eigenständige Konsolenangebote' in collection and 'Separates Angebot für die Sony PlayStation 1' in overview)
  ck('Home exposes search intent and collection path','55 Xbox-360-Spiele' in current and '39 PS2-Spiele' in current and '37 PSP-Spiele' in current and 'spiele-sammlung.html' in current)
  for name,phrase,count in [('xbox-360.html','Xbox 360 Spiele gebraucht',55),('playstation-2.html','PS2 Spiele gebraucht',39),('psp.html','PSP Spiele gebraucht',37)]:
   s=(PUBLIC/'plattform'/name).read_text();ck('High-intent platform title '+name,phrase in s.split('</title>',1)[0]);ck('Platform detail links '+name,s.count('../spiele/')==count,str(s.count('../spiele/')))
