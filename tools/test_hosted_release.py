@@ -35,6 +35,18 @@ def main():
  try:build('preview','https://example.org/',DIST)
  except ValueError:ck('Preview cannot impersonate production origin',True)
  else:ck('Preview cannot impersonate production origin',False)
+ # A symlinked output must never cause recursive removal of its external target.
+ import tempfile, shutil
+ if DIST.is_symlink():raise RuntimeError('Unexpected symlink in test worktree')
+ if DIST.exists():shutil.rmtree(DIST)
+ with tempfile.TemporaryDirectory() as outside:
+  sentinel=Path(outside)/'must-survive';sentinel.write_text('untouched')
+  DIST.symlink_to(outside,target_is_directory=True)
+  try:build('preview',None,DIST)
+  except ValueError:ck('Symlinked output directory rejected',True)
+  else:ck('Symlinked output directory rejected',False)
+  ck('Symlink target preserved',sentinel.read_text()=='untouched')
+  DIST.unlink()
  report=build('preview',None,DIST)
  ck('Build is explicitly a noindex preview',report['mode']=='preview' and not report['indexable'] and not report['production_ready'])
  expected={*ROOT_FILES,*('oeffentlich/'+name for name in PUBLIC_FILES),'robots.txt','build-manifest.json'}
