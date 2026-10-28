@@ -20,12 +20,13 @@ jobs:
         with:
           python-version: '3.13'
       - name: Generate buyer-focused pages from verified catalogue
-        run: python tools/build_sales_accelerator.py --apply
+        run: |
+          python tools/build_sales_accelerator.py --apply
+          python tools/build_sales_accelerator.py
       - name: Refresh CSP and opt-in sharing assets
         run: python tools/prepare_security_release.py
       - name: Verify generated discovery pages and immutable catalogue
         run: |
-          python tools/build_sales_accelerator.py
           python tools/check_sales_accelerator.py --reference 549e13cc3d273373d445cf6e6489f14d6c817ebb --out verification/sales-discovery.json
           python tools/prepare_security_release.py --check
           python tools/check_brand.py
