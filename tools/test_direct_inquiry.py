@@ -65,6 +65,11 @@ def main():
         page=ctx.new_page()
         page.set_default_timeout(10000)
         page.on('pageerror',lambda e:errors.append(str(e)))
+        def wait_until(predicate,label):
+            for _ in range(80):
+                if predicate():return
+                page.wait_for_timeout(100)
+            raise AssertionError('Timed out: '+label)
         try:
             page.goto(BASE,wait_until='load')
             page.locator('#openWishlistBuilder').click()
@@ -80,7 +85,7 @@ def main():
             page.locator('#selectAllGames').click()
             page.locator('#openWishlistBuilder').click()
             ck('All 144 catalogue items selectable',page.locator('#wishlistItems button[data-remove]').count()==144)
-            page.wait_for_function("!document.querySelector('#gvSendInquiry').disabled")
+            wait_until(lambda:page.locator('#gvSendInquiry').is_enabled(),'form enabled')
             page.locator('#gvBuyerEmail').fill('not-an-email')
             page.locator('#gvSendInquiry').click()
             ck('Buyer email is validated before sending',len(requests)==0 and not page.locator('#gvBuyerEmail').evaluate('(e)=>e.checkValidity()'))
@@ -89,7 +94,7 @@ def main():
             page.locator('#gvBuyerNote').fill('Bitte einen Paketpreis mitteilen.')
             ck('No personal data transmitted before explicit click',len(requests)==0)
             page.locator('#gvSendInquiry').click()
-            page.wait_for_function("document.querySelector('#gvInquiryStatus').textContent.includes('angenommen')")
+            wait_until(lambda:'angenommen' in page.locator('#gvInquiryStatus').inner_text(),'accepted')
             ck('Exactly one POST to approved form endpoint',len(requests)==1 and requests[0]['url']=='https://formspree.io/f/'+FAKE and requests[0]['method']=='POST')
             expected=['PS2-001','PSP-031','X360-001','GV-PS5-FOTO-001']
             ck('All platform IDs, response email and free text are submitted',all(uid in requests[0]['body'] for uid in expected) and 'buyer@example.org' in requests[0]['body'] and 'Paketpreis' in requests[0]['body'])
@@ -98,17 +103,17 @@ def main():
             page.locator('#gvBuyerNote').fill('Weitere Frage')
             provider='rate'
             page.locator('#gvSendInquiry').click()
-            page.wait_for_function("document.querySelector('#gvInquiryStatus').textContent.includes('zu viele Anfragen')")
+            wait_until(lambda:'zu viele Anfragen' in page.locator('#gvInquiryStatus').inner_text(),'429 error')
             ck('429 rate limiting gives no success',len(requests)==2 and page.locator('#gvSendInquiry').is_enabled())
             page.locator('#gvBuyerNote').fill('Nächste Frage')
             provider='invalid'
             page.locator('#gvSendInquiry').click()
-            page.wait_for_function("document.querySelector('#gvInquiryStatus').textContent.includes('prüfe')")
+            wait_until(lambda:'prüfe' in page.locator('#gvInquiryStatus').inner_text(),'422 error')
             ck('422 validation error gives no success',len(requests)==3 and page.locator('#gvSendInquiry').is_enabled())
             page.locator('#gvBuyerNote').fill('Letzte Frage')
             provider='offline'
             page.locator('#gvSendInquiry').click()
-            page.wait_for_function("document.querySelector('#gvInquiryStatus').textContent.includes('nicht bestätigt')")
+            wait_until(lambda:'nicht bestätigt' in page.locator('#gvInquiryStatus').inner_text(),'network failure')
             ck('Network failure handled without erasing selection',len(requests)==4 and page.locator('#gvSendInquiry').is_enabled() and page.locator('#wishlistItems button[data-remove]').count()==144)
             ck('No browser script errors or other external requests',not errors and not other,repr(errors+other))
         except Exception as exc:
