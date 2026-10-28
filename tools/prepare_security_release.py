@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bounded Game Vault hardening and opt-in sharing assets. No network, sending or WAF claims."""
+"""Bounded GAME VAULT hardening and opt-in sharing assets. No network, sending or WAF claims."""
 from __future__ import annotations
 import argparse, base64, hashlib, html, json, re, zipfile
 from html.parser import HTMLParser
@@ -69,7 +69,7 @@ def sharing_files(root:Path)->dict[Path,str]:
  text='GAME VAULT · FREIWILLIG TEILEN\n\nNur selbst veröffentlichen oder an Personen senden, die diese Information wünschen.\nKeine garantierte Verfügbarkeit, keine erfundenen Preise, keine aktiven Partnerangebote.\n\n'
  for r in records:text+=r['title']+'\n'+r['description']+'\n'+r['url']+'\n\n'
  rss=ET.Element('rss',version='2.0');ch=ET.SubElement(rss,'channel')
- for k,v in [('title','Game Vault – öffentliche Katalogseiten'),('link',PUBLIC),('description','Freiwillig abonnierbarer Katalogfeed. Keine Preis- oder Verfügbarkeitsgarantie.'),('language','de-DE')]:ET.SubElement(ch,k).text=v
+ for k,v in [('title','GAME VAULT – öffentliche Katalogseiten'),('link',PUBLIC),('description','Freiwillig abonnierbarer Katalogfeed. Keine Preis- oder Verfügbarkeitsgarantie.'),('language','de-DE')]:ET.SubElement(ch,k).text=v
  for r in records:
   item=ET.SubElement(ch,'item')
   for k,v in [('title',r['title']),('link',r['url']),('description',r['description'])]:ET.SubElement(item,k).text=v
@@ -109,7 +109,7 @@ def main():
   with zipfile.ZipFile(destination/'game-vault-teilen.zip','w',compression=zipfile.ZIP_DEFLATED) as z:
    for file,text in sharing_files(ROOT).items():z.writestr(file.name,text)
    z.write(ROOT/'oeffentlich/og-game-vault.jpg','vorschaubild.jpg')
-   z.writestr('LESEN.txt','Game Vault – Weiterempfehlungspaket. Nur auf eigenen oder freigegebenen Kanälen einsetzen. Keine automatische Verteilung, kein Tracking-Script, keine garantierten Preise oder Verkäufe. Die JSON-Datei nennt die tatsächlichen Seitenadressen.\n')
+   z.writestr('LESEN.txt','GAME VAULT – Weiterempfehlungspaket. Nur auf eigenen oder freigegebenen Kanälen einsetzen. Keine automatische Verteilung, kein Tracking-Script, keine garantierten Preise oder Verkäufe. Die JSON-Datei nennt die tatsächlichen Seitenadressen.\n')
   print('Generated sharing archive; nothing sent.');return
  changes={};p=ROOT/'oeffentlich/index.html';before=p.read_text();after=change_inputs(before)
  assert protected(before)==protected(after),'Protected catalogue changed'
@@ -118,7 +118,7 @@ def main():
  assert protected(before)==protected(after)
  changes[p]=after;changes[ROOT/'oeffentlich/teilen.html']=share_page()
  overview=ROOT/'oeffentlich/uebersicht.html';s=overview.read_text()
- if 'href="./teilen.html"' not in s:s=s.replace('</main>','<p><a href="./teilen.html">Game Vault weiterempfehlen – Texte und Katalogfeed</a></p></main>')
+ if 'href="./teilen.html"' not in s:s=s.replace('</main>','<p><a href="./teilen.html">GAME VAULT weiterempfehlen – Texte und Katalogfeed</a></p></main>')
  changes[overview]=s
  for path in [ROOT/'index.html',*sorted((ROOT/'oeffentlich').rglob('*.html')),ROOT/'oeffentlich/teilen.html']:
   text=changes.get(path,path.read_text() if path.exists() else '')
@@ -136,7 +136,7 @@ def main():
   if re.search(r'\son[a-z]+\s*=',text,re.I):raise ValueError('Inline handler remains: '+str(path))
   changes[path]=text
  sw=ROOT/'oeffentlich/sw.js';s=sw.read_text()
- s=re.sub(r"const VERSION=PREFIX\+'[^']+';","const VERSION=PREFIX+'2026-10-28-sharing-ui-v1';",s)
+ s=re.sub(r"const VERSION=PREFIX\+'[^']+';","const VERSION=PREFIX+'2026-10-28-brand-v1';",s)
  s=s.replace("'./datenschutz.html','./hinweise.html','./uebersicht.html'];","'./datenschutz.html','./hinweise.html','./uebersicht.html','./teilen.html'];")
  s=s.replace("response.ok&&response.type==='basic'","response.ok&&!response.redirected&&response.type==='basic'&&new URL(response.url).pathname===url.pathname")
  changes[sw]=s
