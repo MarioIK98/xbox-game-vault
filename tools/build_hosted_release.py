@@ -8,7 +8,7 @@ from urllib.parse import urlparse
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_SOURCE = 'https://marioik98.github.io/xbox-game-vault/'
 ROOT_FILES = ('index.html', 'sitemap.xml')
-PUBLIC_FILES = (
+BASE_PUBLIC_FILES = (
     'index.html', 'uebersicht.html', 'teilen.html', 'datenschutz.html',
     'hinweise.html', 'sw.js', 'sitemap.xml', 'robots.txt',
     'site.webmanifest', 'og-game-vault.jpg',
@@ -20,6 +20,8 @@ PUBLIC_FILES = (
     'reichweite/beitraege.txt', 'reichweite/links.json',
     'reichweite/feed.xml',
 )
+PUBLIC_FILES = (*BASE_PUBLIC_FILES, 'spiele-sammlung.html',
+    *(f'spiele/{p.name}' for p in sorted((ROOT/'oeffentlich/spiele').glob('*.html'))))
 TEXT_EXT = {'.html', '.xml', '.json', '.txt', '.js', '.webmanifest'}
 BLOCK = re.compile(r'<!-- GV_SECURITY_START -->.*?<!-- GV_SECURITY_END -->\s*', re.S)
 SCRIPTS = re.compile(r'<script\b[^>]*>(.*?)</script\s*>', re.S | re.I)
