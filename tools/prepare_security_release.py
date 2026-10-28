@@ -17,7 +17,7 @@ def digest(s:str)->str:
 
 def csp(text:str)->str:
  hashes=sorted({"'sha256-"+digest(s)+"'" for s in SCRIPTS.findall(text)})
- return "; ".join(["default-src 'none'","base-uri 'none'","object-src 'none'","frame-src 'none'","form-action 'none'","script-src "+(' '.join(hashes) or "'none'"),"script-src-attr 'none'","style-src 'self' 'unsafe-inline'","img-src 'self' data:","font-src 'self'","connect-src 'self'","manifest-src 'self'","worker-src 'self'","media-src 'none'"])
+ return "; ".join(["default-src 'none'","base-uri 'none'","object-src 'none'","frame-src 'none'","form-action 'none'","script-src "+(' '.join(hashes) or "'none'"),"script-src-attr 'none'","style-src 'self' 'unsafe-inline'","img-src 'self' data:","font-src 'self'","connect-src 'self'" + (" https://formspree.io" if re.search(r'<meta name="gv-inquiry-form" content="[a-z0-9]{8,20}"',text) else ""),"manifest-src 'self'","worker-src 'self'","media-src 'none'"])
 
 def protected(text:str)->dict:
  return {name:re.findall(p,text,re.S) for name,p in {
