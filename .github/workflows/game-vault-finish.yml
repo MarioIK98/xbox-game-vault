@@ -38,6 +38,8 @@ jobs:
         run: python tools/check_sales_accelerator.py --out verification/sales-discovery.json
       - name: Buyer-flow, HTTP and offline regression tests
         run: python tools/test_game_vault.py --out verification/browser
+      - name: Browser-verified direct inquiry submission (mock provider, no outgoing email)
+        run: python tools/test_direct_inquiry.py --out verification/direct-inquiry.json
       - name: Isolated browser security and input-validation tests
         run: python tools/test_security.py --out verification/security
       - name: Verify sharing controls and honest failure messages
