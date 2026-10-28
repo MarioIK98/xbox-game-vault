@@ -1,0 +1,4 @@
+Initial scoped URL-notification request for the ten canonical pages updated in release 69c346f1f1a61b96949db592203ac744142d953f.
+The GitHub Pages build/deployment succeeded, but the workflow_run follow-up was not observed to start. The live job is now a direct dependency of the successful main quality job and waits for exact public content before submitting.
+This file requests the first notification only in the commit that adds/changes it. Ordinary future commits notify only changed canonical pages. No successful IndexNow receipt was recorded before this request.
+A receipt is not a claim of indexing, Google submission or ranking. Do not repeatedly modify this marker solely to resend unchanged URLs.
