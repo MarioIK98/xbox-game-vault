@@ -1,3 +1,6 @@
+# Informational copy only. This subdirectory is NOT the host root.
+# Crawlers use https://marioik98.github.io/robots.txt instead.
+# This file does not submit a sitemap or grant privacy protection.
 User-agent: *
 Allow: /
 Sitemap: https://marioik98.github.io/xbox-game-vault/oeffentlich/sitemap.xml
