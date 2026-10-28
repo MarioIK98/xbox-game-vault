@@ -1,0 +1,5 @@
+# Build and test outputs. Never commit previews as production source.
+/dist/
+/verification/
+__pycache__/
+*.pyc
