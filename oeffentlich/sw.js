@@ -7,7 +7,7 @@ const PRECACHE=['./','./index.html','./site.webmanifest','./og-game-vault.jpg',
  './plattform/xbox-360.html','./plattform/original-xbox.html','./plattform/playstation-2.html',
  './plattform/psp.html','./plattform/playstation-4.html','./plattform/playstation-5.html',
  './plattform/nintendo-ds.html','./plattform/pc.html',
- './datenschutz.html','./hinweise.html','./uebersicht.html'];
+ './datenschutz.html','./hinweise.html','./uebersicht.html','./teilen.html'];
 const ALLOWED=new Set(PRECACHE.map(path=>new URL(path,SCOPE).href));
 self.addEventListener('install',event=>event.waitUntil(
  caches.open(VERSION).then(cache=>cache.addAll([...ALLOWED])).then(()=>self.skipWaiting())
@@ -30,7 +30,7 @@ self.addEventListener('fetch',event=>{
   const cache=await caches.open(VERSION);
   try{
    const response=await fetch(event.request);
-   if(ALLOWED.has(key)&&response.ok&&response.type==='basic'){
+   if(ALLOWED.has(key)&&response.ok&&!response.redirected&&response.type==='basic'&&new URL(response.url).pathname===url.pathname){
     try{await cache.put(key,response.clone());}catch(_){}
    }
    return response;

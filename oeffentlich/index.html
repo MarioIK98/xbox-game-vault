@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="de"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta charset="utf-8"><!-- GV_SECURITY_START --><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; object-src &#x27;none&#x27;; frame-src &#x27;none&#x27;; form-action &#x27;none&#x27;; script-src &#x27;sha256-ESGrKsmsM/BKaNQNvT/SGuYhGIndUlsK655tzHvZt+g=&#x27; &#x27;sha256-RrES3To+Ezvhd0PjaLW8BofdPId5auOhKprbxXpEytY=&#x27; &#x27;sha256-h0guSD5CVE5Hi1rF3OgT/tnE0FAnDSejjN3z0g2UuXg=&#x27;; script-src-attr &#x27;none&#x27;; style-src &#x27;self&#x27; &#x27;unsafe-inline&#x27;; img-src &#x27;self&#x27; data:; font-src &#x27;self&#x27;; connect-src &#x27;self&#x27;; manifest-src &#x27;self&#x27;; worker-src &#x27;self&#x27;; media-src &#x27;none&#x27;"><meta name="referrer" content="no-referrer"><!-- GV_SECURITY_END -->
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#111a2f"><meta name="color-scheme" content="dark">
 <title>Game Vault – gebrauchte Videospiele für Xbox, PlayStation &amp; PSP</title><meta name="description" content="Gebrauchte Videospiele aus Marios privater Sammlung: Xbox 360, PS2, PSP und weitere Plattformen. Titel entdecken, Merkliste erstellen und unverbindlich anfragen.">
 <meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://marioik98.github.io/xbox-game-vault/oeffentlich/"><link rel="alternate" hreflang="de-DE" href="https://marioik98.github.io/xbox-game-vault/oeffentlich/">
@@ -1054,7 +1055,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
 <div class="outro-actions"><button class="btn btn-primary" type="button" id="openWishlistOutro">Merkliste ansehen</button><button type="button" class="btn btn-ghost" id="shareLink">Seitenlink teilen ↗</button></div><p id="shareStatus" class="toast" role="status" aria-live="polite"></p></section>
 </main>
 <footer class="footer container"><div><b>🎮 GAME VAULT</b><p>Öffentlicher Katalog einer privaten Spielesammlung. Abbildungen aus dem vorhandenen Bestand, unverbindliche Anfragen. Keine automatischen Bestellungen, Zahlungen oder Reservierungen. Marktwerte sind keine verbindlichen Verkaufspreise.</p><p>Bestandsstand: 24.10.2026 · Marktreferenzstand: 23.10.2026 · Inhalt und Altersfreigabe vor Übergabe prüfen.</p></div>
-<div class="footer-links"><a href="#spiele">Spiele</a><a href="#plattformen">Plattformen</a><a href="#preise">Preisprüfung</a><a href="#partner">Partner</a><a href="#fragen">FAQ</a></div><div class="footer-links"><a href="./uebersicht.html">Alle Seiten</a><a href="./sitemap.xml">Sitemap</a><a href="./datenschutz.html">Datenschutz</a><a href="./hinweise.html">Hinweise</a></div></footer>
+<div class="footer-links"><a href="#spiele">Spiele</a><a href="#plattformen">Plattformen</a><a href="#preise">Preisprüfung</a><a href="#partner">Partner</a><a href="#fragen">FAQ</a></div><div class="footer-links"><a href="./uebersicht.html">Alle Seiten</a><a href="./teilen.html">Weiterempfehlen</a><a href="./sitemap.xml">Sitemap</a><a href="./datenschutz.html">Datenschutz</a><a href="./hinweise.html">Hinweise</a></div></footer>
 <div class="bottom-cta" aria-label="Deine Merkliste"><div class="bottom-inner container"><div class="bottom-desc"><b>Game Vault · <span id="stickyCount">0</span> Spiele gemerkt</b><span>Unverbindlich · keine Bestellung</span></div><button type="button" class="btn btn-primary" id="openWishlistBottom">Merkliste öffnen ↗</button></div></div>
 <dialog id="wishlistDialog" class="wishlist-dialog" aria-labelledby="wishlistTitle"><div style="display:flex;gap:10px;justify-content:space-between;align-items:start"><h2 id="wishlistTitle">Deine Merkliste</h2><button type="button" id="closeWishlist" class="btn btn-ghost btn-mini" aria-label="Merkliste schließen">Schließen ×</button></div>
 <p>Du kannst die Liste vor einer Anfrage ändern. Das ist keine Bestellung und reserviert nichts.</p>
@@ -1073,7 +1074,8 @@ const folded=s=>String(s||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').t
 const ord=['Xbox 360','Original Xbox','PS2','PSP','PS4','PS5','Nintendo DS','PC'];
 const grouped=new Map(ord.map(p=>[p,cards.filter(x=>x.dataset.platform===p)]));
 let wanted=new Set(),platform='Alle',limit=12;
-try{const raw=JSON.parse(localStorage.getItem(storeKey)||'[]');if(Array.isArray(raw))wanted=new Set(raw.filter(x=>typeof x==='string'&&byId.has(x)).slice(0,cards.length))}catch(_){}
+// gv-security-2026-10-28-v1: validate untrusted browser storage before parsing.
+try{const saved=localStorage.getItem(storeKey)||'[]';if(saved.length<=10000){const raw=JSON.parse(saved);if(Array.isArray(raw)&&raw.length<=500)wanted=new Set(raw.filter(x=>typeof x==='string'&&byId.has(x)).slice(0,cards.length));}}catch(_){}
 const save=()=>{try{localStorage.setItem(storeKey,JSON.stringify([...wanted]))}catch(_){};};
 const filteredCards=()=>{const q=folded($('gameSearch').value.trim());return cards.filter(x=>(platform==='Alle'||x.dataset.platform===platform)&&folded(x.dataset.title+' '+x.dataset.edition+' '+x.dataset.platform+' '+x.dataset.uid).includes(q));};
 const totalFor=p=>(grouped.get(p)||[]).length;
@@ -1215,6 +1217,7 @@ function dropSharedParam(){
  try{history.replaceState(null,'',u.pathname+u.search+u.hash);}catch(_){}
 }
 function initSharedSelection(){
+ if(location.search.length>16384){shareBanner.hidden=false;$('sharedSelectionDescription').textContent='Dieser Link ist zu lang. Die vorhandene Merkliste bleibt unverändert.';$('importSharedWishlist').hidden=true;return;}
  const q=new URLSearchParams(location.search).get('auswahl');if(q===null)return;
  shareBanner.hidden=false;
  if(q.length>4000||!/^[A-Za-z0-9_,-]+$/.test(q)){
@@ -1236,7 +1239,7 @@ $('importSharedWishlist').addEventListener('click',()=>{
 $('dismissSharedWishlist').addEventListener('click',()=>{shareBanner.hidden=true;dropSharedParam()});
 $('shareLink').addEventListener('click',async()=>{const siteUrl=/^https?:$/.test(location.protocol)?new URL(location.href):null;if(siteUrl){siteUrl.search='';siteUrl.hash='';}const url=siteUrl?siteUrl.toString():'';if(!url){$('shareStatus').textContent='Dieser lokale Entwurf hat noch keinen öffentlich teilbaren Link.';return;}try{if(navigator.share){await navigator.share({title:'Game Vault – gebrauchte Videospiele entdecken',url});$('shareStatus').textContent='Link zum Teilen geöffnet.';}else $('shareStatus').textContent=await copyText(url)?'Webseiten-Link kopiert.':'Webseiten-Link: '+url;}catch(e){$('shareStatus').textContent=e?.name==='AbortError'?'Teilen abgebrochen.':'Webseiten-Link: '+url;}});
 initBuilderPlatforms();
-const qs=new URLSearchParams(location.search);const p=qs.get('plattform');if(p&&ord.includes(p))platform=p;
+const qs=new URLSearchParams(location.search.length<=16384?location.search:'');const p=qs.get('plattform');if(p&&ord.includes(p))platform=p;
 const uid=qs.get('spiel');if(uid&&byId.has(uid)){$('gameSearch').value=byId.get(uid).dataset.title;platform=byId.get(uid).dataset.platform;}
 platformButtons();updateCount();render();initSharedSelection();
 if(uid&&byId.has(uid))setTimeout(()=>byId.get(uid).scrollIntoView({block:'start'}),70);
