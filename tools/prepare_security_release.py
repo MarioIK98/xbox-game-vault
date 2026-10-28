@@ -61,6 +61,7 @@ def sharing_files(root:Path)->dict[Path,str]:
  records=[]
  for url in urls:
   if not url.startswith(PUBLIC) or '?' in url or '#' in url:raise ValueError('Unapproved URL')
+  if '/spiele/' in url:continue
   rel=url.removeprefix(PUBLIC) or 'index.html'
   path=(root/'oeffentlich'/rel).resolve()
   if not path.is_relative_to((root/'oeffentlich').resolve()):raise ValueError('Outside public directory')
@@ -83,7 +84,7 @@ def share_page()->str:
  first=records[0]
  labels={'':'Gesamter Spielekatalog','uebersicht.html':'Alle Seiten im Überblick',
   'nintendo-ds.html':'Nintendo DS','original-xbox.html':'Original Xbox',
-  'pc.html':'PC','playstation-2.html':'PlayStation 2','playstation-4.html':'PlayStation 4',
+  'pc.html':'PC','spiele-sammlung.html':'Ganze Spielesammlung','playstation-2.html':'PlayStation 2','playstation-4.html':'PlayStation 4',
   'playstation-5.html':'PlayStation 5','psp.html':'PlayStation Portable (PSP)','xbox-360.html':'Xbox 360'}
  options=''.join('<option value="'+str(i)+'">'+html.escape(labels.get(r['url'].removeprefix(PUBLIC).split('/')[-1],r['title']))+'</option>' for i,r in enumerate(records))
  post=first['title']+'\n\n'+first['description']+'\n\n'+first['url']
@@ -136,7 +137,7 @@ def main():
   if re.search(r'\son[a-z]+\s*=',text,re.I):raise ValueError('Inline handler remains: '+str(path))
   changes[path]=text
  sw=ROOT/'oeffentlich/sw.js';s=sw.read_text()
- s=re.sub(r"const VERSION=PREFIX\+'[^']+';","const VERSION=PREFIX+'2026-10-28-brand-v1';",s)
+ s=re.sub(r"const VERSION=PREFIX\+'[^']+';","const VERSION=PREFIX+'2026-10-28-sales-v2';",s)
  s=s.replace("'./datenschutz.html','./hinweise.html','./uebersicht.html'];","'./datenschutz.html','./hinweise.html','./uebersicht.html','./teilen.html'];")
  s=s.replace("response.ok&&response.type==='basic'","response.ok&&!response.redirected&&response.type==='basic'&&new URL(response.url).pathname===url.pathname")
  changes[sw]=s
