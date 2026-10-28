@@ -78,7 +78,29 @@ def sharing_files(root:Path)->dict[Path,str]:
  return {root/'oeffentlich/reichweite/links.json':json.dumps(payload,ensure_ascii=False,indent=2)+'\n',root/'oeffentlich/reichweite/beitraege.txt':text,root/'oeffentlich/reichweite/feed.xml':'<?xml version="1.0" encoding="utf-8"?>\n'+ET.tostring(rss,encoding='unicode')+'\n'}
 
 def share_page()->str:
- return '''<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,follow"><title>Game Vault teilen – Links und Katalogfeed</title><meta name="description" content="Game Vault freiwillig weiterempfehlen: öffentlicher Kataloglink, Textpaket und abonnierbarer Feed. Kein automatischer Versand."><style>:root{color-scheme:dark;font-family:system-ui,sans-serif;background:#090e20;color:#f5f7ff}*{box-sizing:border-box}body{margin:0;line-height:1.65}main{max-width:1000px;margin:auto;padding:32px 20px 60px}h1{font-size:clamp(2rem,5vw,3rem);line-height:1.15;overflow-wrap:anywhere}p{color:#c4d2e7}a{color:#b5f8df}a:focus-visible,textarea:focus-visible{outline:3px solid #d5ff86;outline-offset:4px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px}.card{padding:22px;border:1px solid #52637b;border-radius:18px;background:#151d36}h2{font-size:1.2rem}.button{display:inline-block;padding:12px 16px;border:1px solid #69f2d4;border-radius:10px;font-weight:750;text-decoration:none}textarea{width:100%;padding:14px;background:#101a2c;color:#f5f7ff;border:1px solid #8397ad;border-radius:12px;font:inherit;resize:vertical}.note{border-left:4px solid #d5ff86;padding:10px 16px;margin-top:24px}</style></head><body><main><a href="./">← Spielekatalog</a><h1>Game Vault weiterempfehlen.</h1><p>Du möchtest Game Vault empfehlen? Hier findest du passende Texte, Links und einen Katalogfeed für deine Beiträge, freigegebene Community-Kanäle und Menschen mit Interesse an Videospielen.</p><label for="publicLink">Öffentliche Adresse zum Markieren und Kopieren</label><textarea id="publicLink" rows="2" readonly>https://marioik98.github.io/xbox-game-vault/oeffentlich/</textarea><div class="grid"><section class="card"><h2>Textpaket</h2><p>Beschreibungen und Links der zehn bestehenden Katalogseiten. Keine erfundenen Angebote.</p><a class="button" href="./reichweite/beitraege.txt" download>Texte herunterladen</a></section><section class="card"><h2>Katalogfeed</h2><p>Mit einem Feedreader freiwillig abonnieren. Kein Konto und keine Anmeldung auf Game Vault.</p><a class="button" href="./reichweite/feed.xml">Feed öffnen</a></section><section class="card"><h2>Strukturierte Linkliste</h2><p>Zehn öffentliche Adressen mit passenden Titeln und Beschreibungen – für deine eigenen, freigegebenen Integrationen.</p><a class="button" href="./reichweite/links.json" download>Linkliste herunterladen</a></section></div><p class="note">Die Dateien werden aus den tatsächlichen Seitentiteln und Beschreibungen erzeugt und bei Codeänderungen geprüft. Du entscheidest, wo du die Inhalte veröffentlichst. Es wird nichts automatisch versendet. Verfügbarkeit und Preise werden vor einer Einigung geprüft.</p><p><a href="./uebersicht.html">Alle Seiten</a> · <a href="./datenschutz.html">Datenschutz</a> · <a href="./hinweise.html">Hinweise</a></p></main></body></html>'''
+ # The existing public HTML is the editable design source, not a second application.
+ records=json.loads(sharing_files(ROOT)[ROOT/'oeffentlich/reichweite/links.json'])['items']
+ first=records[0]
+ labels={'':'Gesamter Spielekatalog','uebersicht.html':'Alle Seiten im Überblick',
+  'nintendo-ds.html':'Nintendo DS','original-xbox.html':'Original Xbox',
+  'pc.html':'PC','playstation-2.html':'PlayStation 2','playstation-4.html':'PlayStation 4',
+  'playstation-5.html':'PlayStation 5','psp.html':'PlayStation Portable (PSP)','xbox-360.html':'Xbox 360'}
+ options=''.join('<option value="'+str(i)+'">'+html.escape(labels.get(r['url'].removeprefix(PUBLIC).split('/')[-1],r['title']))+'</option>' for i,r in enumerate(records))
+ post=first['title']+'\n\n'+first['description']+'\n\n'+first['url']
+ values=[('select','pageChoice',options),('textarea','postText',html.escape(post)),
+  ('textarea','publicLink',html.escape(first['url'])),('h2','previewTitle',html.escape(first['title'])),
+  ('p','previewDescription',html.escape(first['description'])),
+  ('span','textCount',str(len(post))+' / 4000 Zeichen'),
+  ('script','shareData',json.dumps(records,ensure_ascii=False).replace('<',r'\u003c'))]
+ text=(ROOT/'oeffentlich/teilen.html').read_text(encoding='utf-8')
+ for tag,ident,value in values:
+  pattern=r'(<'+tag+r'\b[^>]*\bid="'+ident+r'"[^>]*>).*?(</'+tag+r'>)'
+  text,count=re.subn(pattern,lambda m:m[1]+value+m[2],text,flags=re.S)
+  if count!=1:raise ValueError('Sharing page element missing or duplicated: '+ident)
+ text,count=re.subn(r'(<a\b[^>]*\bid="openTarget"[^>]*\bhref=")[^"]*(")',lambda m:m[1]+html.escape(first['url'],quote=True)+m[2],text)
+ if count!=1:raise ValueError('Sharing target link missing or duplicated')
+ return text
+
 
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('--check',action='store_true');ap.add_argument('--bundle-out');args=ap.parse_args()
@@ -114,7 +136,7 @@ def main():
   if re.search(r'\son[a-z]+\s*=',text,re.I):raise ValueError('Inline handler remains: '+str(path))
   changes[path]=text
  sw=ROOT/'oeffentlich/sw.js';s=sw.read_text()
- s=re.sub(r"const VERSION=PREFIX+'[^']+';","const VERSION=PREFIX+'2026-10-28-security-v1';",s)
+ s=re.sub(r"const VERSION=PREFIX\+'[^']+';","const VERSION=PREFIX+'2026-10-28-sharing-ui-v1';",s)
  s=s.replace("'./datenschutz.html','./hinweise.html','./uebersicht.html'];","'./datenschutz.html','./hinweise.html','./uebersicht.html','./teilen.html'];")
  s=s.replace("response.ok&&response.type==='basic'","response.ok&&!response.redirected&&response.type==='basic'&&new URL(response.url).pathname===url.pathname")
  changes[sw]=s

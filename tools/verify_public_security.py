@@ -20,7 +20,9 @@ def main():
   ready=False
   for n in range(12):
    code,body,h=get('oeffentlich/index.html')
-   if code==200 and body==(ROOT/'oeffentlich/index.html').read_bytes():ready=True;break
+   if code==200 and body==(ROOT/'oeffentlich/index.html').read_bytes():
+    share_code,share_body,_=get('oeffentlich/teilen.html')
+    if share_code==200 and share_body==(ROOT/'oeffentlich/teilen.html').read_bytes():ready=True;break
    time.sleep(10)
   if not ready:raise RuntimeError('Expected public version not served; no success claim')
   for path in paths:

@@ -83,3 +83,6 @@ STOP CURRENT ROUTE → ROOT CAUSE → ALTERNATIVE ROUTE → CONTINUE.
 
 Keine unnötigen Refactorings, neuen Worktrees, Tools oder Vollscans ohne materiellen Nutzen.
 Abschluss nur bei erfüllten Akzeptanzkriterien, Tests/Evidenz und sauber dokumentierten offenen Punkten.
+
+## Projektfortsetzung und Hostingprüfung
+Vor weiterer Umsetzung `release/WORKING_STATE.md` und `release/hosting_policy.json` lesen; aktuelle Repository- und Teststände danach verifizieren. Vor kommerzieller Erweiterung den Veröffentlichungszweck korrekt setzen und `python tools/check_hosting.py` ausführen. Dieser Prüfpunkt ersetzt weder die Anbieterprüfung noch Marios Kosten-/Umzugsfreigabe. Bestehende Tests und Fehlerlektionen wiederverwenden; kein automatisches globales Lernen über alle Chats behaupten.
