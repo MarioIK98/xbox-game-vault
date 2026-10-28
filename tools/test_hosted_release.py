@@ -51,8 +51,8 @@ def main():
  from unittest.mock import patch
  with patch('build_hosted_release.approved_production',return_value=None):
   production=build('production','https://gamevault.example/',DIST)
- ck('Test fixture builds production-shaped file set',production['production_ready'] and len(production['files'])==26)
- check_pages=('index.html','oeffentlich/index.html','oeffentlich/teilen.html','oeffentlich/plattform/xbox-360.html','sitemap.xml','oeffentlich/reichweite/links.json')
+ ck('Test fixture builds production-shaped file set',production['production_ready'] and len(production['files'])==len(ROOT_FILES)+len(PUBLIC_FILES)+1)
+ check_pages=('index.html','oeffentlich/index.html','oeffentlich/teilen.html','oeffentlich/spiele-sammlung.html','oeffentlich/spiele/x360-001-minecraft-xbox-360-edition.html','oeffentlich/plattform/xbox-360.html','sitemap.xml','oeffentlich/reichweite/links.json')
  ck('Authorized fixture rewrites all public origins',all('https://marioik98.github.io/xbox-game-vault/' not in (DIST/x).read_text() for x in check_pages))
  ck('Authorized fixture sets the new canonical', '<link rel="canonical" href="https://gamevault.example/oeffentlich/"' in (DIST/'oeffentlich/index.html').read_text())
  ck('Authorized fixture does not add preview noindex', 'content="noindex,nofollow"' not in (DIST/'oeffentlich/index.html').read_text())
@@ -68,7 +68,7 @@ def main():
  ck('Preview root robots disables crawlers',(DIST/'robots.txt').read_text().strip()=='User-agent: *\nDisallow: /')
  ck('Preview path robots disables crawlers',(DIST/'oeffentlich/robots.txt').read_text()==(DIST/'robots.txt').read_text())
  htmls=list(DIST.rglob('*.html'))
- ck('All 14 production HTML documents included',len(htmls)==14,str(len(htmls)))
+ ck('All current production HTML documents included',len(htmls)==1+sum(1 for name in PUBLIC_FILES if name.endswith('.html')),str(len(htmls)))
  for file in htmls:
   s=file.read_text();rel=file.relative_to(DIST).as_posix()
   ck('Robots noindex '+rel,len(re.findall(r'<meta\s+name=["\']robots["\']\s+content=["\']noindex,nofollow["\']\s*>',s,re.I))==1)
@@ -94,8 +94,9 @@ def main():
  ck('Embedded game images retained',re.findall(images,contents,re.S)==re.findall(images,source,re.S))
  ck('Partner HTML unchanged',re.findall(r'<section class="section" id="partner".*?</section>',contents,re.S)==re.findall(r'<section class="section" id="partner".*?</section>',source,re.S))
  ck('All 8 platform pages retained',len(list((DIST/'oeffentlich/plattform').glob('*.html')))==8)
+ ck('All 144 game detail pages retained',len(list((DIST/'oeffentlich/spiele').glob('*.html')))==144)
  ck('RSS retained',(DIST/'oeffentlich/reichweite/feed.xml').is_file())
- ck('Sitemap retains 10 approved canonical pages',len(ET.fromstring((DIST/'sitemap.xml').read_text()).findall('{http://www.sitemaps.org/schemas/sitemap/0.9}url'))==10)
+ ck('Sitemap retains 155 approved canonical pages',len(ET.fromstring((DIST/'sitemap.xml').read_text()).findall('{http://www.sitemaps.org/schemas/sitemap/0.9}url'))==155)
  manifest=json.loads((DIST/'build-manifest.json').read_text())
  ck('Manifest records all distributable files',len(manifest['files'])==len(actual)-1)
  ck('Manifest SHA256 digest matches output',all(hashlib.sha256((DIST/r['path']).read_bytes()).hexdigest()==r['sha256'] for r in manifest['files']))

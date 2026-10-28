@@ -68,7 +68,7 @@ def main()->int:
   if not ok:print('FAIL',name,detail,flush=True)
  try:
   sitemap=(ROOT/'sitemap.xml').read_text(encoding='utf-8');urls=[x.text for x in ET.fromstring(sitemap).findall('s:url/s:loc',NS)]
-  check('Ten canonical pages in sitemap',len(urls)==10 and len(set(urls))==10)
+  check('155 canonical pages in sitemap',len(urls)==155 and len(set(urls))==155)
   check('Public and root sitemap agree',sitemap==(ROOT/'oeffentlich/sitemap.xml').read_text(encoding='utf-8'))
   check('Only approved public paths',all(u.startswith(PUBLIC) and not urlsplit(u).query and not urlsplit(u).fragment for u in urls))
   titles=[];descriptions=[];content={}
@@ -91,8 +91,8 @@ def main()->int:
     nodes=list(all_nodes(data))
     check('Structured list counts: '+short,all(n.get('numberOfItems')==len(n.get('itemListElement',[])) for n in nodes if n.get('@type')=='ItemList'))
     check('No invented offers or ratings: '+short,not any(n.get('@type') in ('Offer','AggregateOffer','AggregateRating') for n in nodes))
-  check('Ten different titles',len(set(titles))==10)
-  check('Ten different descriptions',len(set(descriptions))==10)
+  check('Unique sitemap titles',len(set(titles))==len(titles))
+  check('Unique sitemap descriptions',len(set(descriptions))==len(descriptions))
   root=Page((ROOT/'index.html').read_text());check('Entry canonical and crawlable',root.canonical==[PUBLIC] and 'noindex' not in (root.one('robots') or ''))
   overview=Page(content[PUBLIC+'uebersicht.html']);check('Overview links to all eight platforms',sum('plattform/' in u for u in overview.links)==8)
   current=content[PUBLIC];cards=re.findall(r'<article\b[^>]*data-public-card.*?</article>',current,re.S)

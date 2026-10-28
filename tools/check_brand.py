@@ -38,7 +38,7 @@ def main():
   print('GAME VAULT branding updated. Changes:',', '.join(changes));return
  for file in [*FILES,*sorted((PUBLIC/'reichweite').glob('*'))]:
   if 'Game Vault' in file.read_text(encoding='utf-8'):errors.append('Unnormalized brand: '+file.relative_to(ROOT).as_posix())
- if '2026-10-28-brand-v1' not in (PUBLIC/'sw.js').read_text(encoding='utf-8'):errors.append('Service-worker cache version not bumped')
+ if '2026-10-28-sales-v2' not in (PUBLIC/'sw.js').read_text(encoding='utf-8'):errors.append('Service-worker cache version not bumped')
  if changes:errors.append('Source brand drift: '+', '.join(changes))
  if errors:raise SystemExit('FAIL: '+', '.join(errors))
  print('PASS: GAME VAULT branding consistent on current public pages and data')

@@ -32,5 +32,10 @@ Der Test berücksichtigt den deklarierten Veröffentlichungszweck. Er ist keine 
 ## Offen, nicht als erledigt darstellen
 Geeigneter kommerzieller Hostingzugang und gegebenenfalls freigegebener Umzug; Google-Search-Console-Eigentumsnachweis; tatsächlich freigegebene Werbepartner und Kontaktwege; echte Kanalverteilung; unabhängige Schutzabnahme. Keine 100-Prozent-Sicherheit. Keine künstlichen Besucher, ungefragte Geräteöffnungen oder selbstverbreitenden Programme.
 
+## Verkaufsbeschleunigung und Suchauffindbarkeit – 28.10.2026
+Der aktuelle Ausbau erzeugt aus den 144 bestätigten öffentlichen Katalogkarten je eine statische, indexierbare Spielseite mit lesbarer URL, exakter Plattform/Edition, vorhandener Marktreferenz und einem direkten Vormerk-Link. Zusätzlich gibt es eine Sammlungsseite für alle 144 Positionen und suchintensivere Plattformseiten für Xbox 360, PS2 und PSP. Die Sitemap umfasst damit 155 kanonische Seiten. Diese Seiten werden aus dem vorhandenen Katalog generiert und mit Bestandsschutz geprüft; keine erfundenen Festpreise, Angebote, Verfügbarkeiten oder Bewertungen.
+
+Ziel ist Long-Tail-Auffindbarkeit für reale Titel und konkrete Plattform-Suchen sowie ein kürzerer Weg von Suchtreffer → Spiel → Merkliste/Paketanfrage. Das ersetzt keinen externen Vertriebskanal und garantiert kein Ranking. Ein bestätigter öffentlicher Kontaktweg, Google-Search-Console-Eigentumsnachweis, externe Verlinkungen und tatsächlich freigegebene Marketplace-/Werbekanäle bleiben separate Hebel. Keine künstlichen Besucher, Linkspam oder ungefragte Veröffentlichungen.
+
 ## Arbeitskommunikation
 Mario will Ergebnisse und notwendige Entscheidungen, keine laufenden Denk- oder Arbeitskommentare. Bei unvermeidbaren externen Voraussetzungen diese konkret benennen, nicht durch neue Entwürfe oder unbestätigte Fertigmeldungen verdecken.

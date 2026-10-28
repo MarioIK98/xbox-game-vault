@@ -4,8 +4,8 @@
   "ranking_guarantee": false,
   "items": [
     {
-      "title": "GAME VAULT – gebrauchte Videospiele für Xbox, PlayStation & PSP",
-      "description": "Gebrauchte Videospiele aus privater Spielesammlung: Xbox 360, PS2, PSP und weitere Plattformen. Titel entdecken, Merkliste erstellen und unverbindlich anfragen.",
+      "title": "Gebrauchte Videospiele: Xbox 360, PS2, PSP & mehr | GAME VAULT",
+      "description": "144 gebrauchte Videospiele aus privater Sammlung: 55 Xbox 360, 39 PS2, 37 PSP und weitere Plattformen. Einzelne Spiele oder ganze Pakete unverbindlich anfragen.",
       "url": "https://marioik98.github.io/xbox-game-vault/oeffentlich/"
     },
     {
@@ -14,44 +14,49 @@
       "url": "https://marioik98.github.io/xbox-game-vault/oeffentlich/uebersicht.html"
     },
     {
-      "title": "Nintendo-DS-Spiel im privaten Katalog | GAME VAULT",
-      "description": "Nintendo DS aus privater Sammlung: eine Katalogposition. Titel und Ausgaben ansehen, Auswahl merken und Preis nach Einzelprüfung anfragen.",
-      "url": "https://marioik98.github.io/xbox-game-vault/oeffentlich/plattform/nintendo-ds.html"
+      "title": "Videospiele-Sammlung: 144 Spiele für Xbox, PS2, PSP & mehr | GAME VAULT",
+      "description": "144 gebrauchte Videospiele aus privater Sammlung: Xbox 360, PS2, PSP, Original Xbox, PS4, PS5, Nintendo DS und PC. Einzelne Spiele oder ganze Pakete unverbindlich anfragen.",
+      "url": "https://marioik98.github.io/xbox-game-vault/oeffentlich/spiele-sammlung.html"
     },
     {
-      "title": "Original Xbox: gebrauchte Spiele | GAME VAULT",
-      "description": "Original Xbox aus privater Sammlung: 7 Katalogpositionen. Titel und Ausgaben ansehen, Auswahl merken und Preis nach Einzelprüfung anfragen.",
+      "title": "Xbox 360 Spiele gebraucht – 55 Titel | GAME VAULT",
+      "description": "55 gebrauchte Xbox 360-Spiele aus privater Sammlung. Titel einzeln ansehen oder das komplette Plattformpaket vormerken; Preis und Zustand werden vor Einigung geprüft.",
+      "url": "https://marioik98.github.io/xbox-game-vault/oeffentlich/plattform/xbox-360.html"
+    },
+    {
+      "title": "Original Xbox Spiele gebraucht – 7 Titel | GAME VAULT",
+      "description": "7 gebrauchte Original Xbox-Spiele aus privater Sammlung. Titel einzeln ansehen oder das komplette Plattformpaket vormerken; Preis und Zustand werden vor Einigung geprüft.",
       "url": "https://marioik98.github.io/xbox-game-vault/oeffentlich/plattform/original-xbox.html"
     },
     {
-      "title": "PC-Spiel aus privater Sammlung | GAME VAULT",
-      "description": "PC aus privater Sammlung: eine Katalogposition. Titel und Ausgaben ansehen, Auswahl merken und Preis nach Einzelprüfung anfragen.",
-      "url": "https://marioik98.github.io/xbox-game-vault/oeffentlich/plattform/pc.html"
-    },
-    {
-      "title": "PS2-Spiele aus privater Sammlung | GAME VAULT",
-      "description": "PlayStation 2 (PS2) aus privater Sammlung: 39 Katalogpositionen. Titel und Ausgaben ansehen, Auswahl merken und Preis nach Einzelprüfung anfragen.",
+      "title": "PS2 Spiele gebraucht – 39 Titel | GAME VAULT",
+      "description": "39 gebrauchte PS2-Spiele aus privater Sammlung. Titel einzeln ansehen oder das komplette Plattformpaket vormerken; Preis und Zustand werden vor Einigung geprüft.",
       "url": "https://marioik98.github.io/xbox-game-vault/oeffentlich/plattform/playstation-2.html"
     },
     {
-      "title": "Gebrauchte PS4-Spiele im Katalog | GAME VAULT",
-      "description": "PlayStation 4 (PS4) aus privater Sammlung: 3 Katalogpositionen. Titel und Ausgaben ansehen, Auswahl merken und Preis nach Einzelprüfung anfragen.",
-      "url": "https://marioik98.github.io/xbox-game-vault/oeffentlich/plattform/playstation-4.html"
-    },
-    {
-      "title": "PS5-Spiel aus privater Sammlung | GAME VAULT",
-      "description": "PlayStation 5 (PS5) aus privater Sammlung: eine Katalogposition. Titel und Ausgaben ansehen, Auswahl merken und Preis nach Einzelprüfung anfragen.",
-      "url": "https://marioik98.github.io/xbox-game-vault/oeffentlich/plattform/playstation-5.html"
-    },
-    {
-      "title": "Gebrauchte PSP-Spiele entdecken | GAME VAULT",
-      "description": "PlayStation Portable (PSP) aus privater Sammlung: 37 Katalogpositionen. Titel und Ausgaben ansehen, Auswahl merken und Preis nach Einzelprüfung anfragen.",
+      "title": "PSP Spiele gebraucht – 37 Titel | GAME VAULT",
+      "description": "37 gebrauchte PSP-Spiele aus privater Sammlung. Titel einzeln ansehen oder das komplette Plattformpaket vormerken; Preis und Zustand werden vor Einigung geprüft.",
       "url": "https://marioik98.github.io/xbox-game-vault/oeffentlich/plattform/psp.html"
     },
     {
-      "title": "Gebrauchte Xbox-360-Spiele entdecken | GAME VAULT",
-      "description": "Xbox 360 aus privater Sammlung: 55 Katalogpositionen. Titel und Ausgaben ansehen, Auswahl merken und Preis nach Einzelprüfung anfragen.",
-      "url": "https://marioik98.github.io/xbox-game-vault/oeffentlich/plattform/xbox-360.html"
+      "title": "PS4 Spiele gebraucht – 3 Titel | GAME VAULT",
+      "description": "3 gebrauchte PS4-Spiele aus privater Sammlung. Titel einzeln ansehen oder das komplette Plattformpaket vormerken; Preis und Zustand werden vor Einigung geprüft.",
+      "url": "https://marioik98.github.io/xbox-game-vault/oeffentlich/plattform/playstation-4.html"
+    },
+    {
+      "title": "PS5 Spiel gebraucht | GAME VAULT",
+      "description": "Gebrauchtes PS5-Spiel aus privater Sammlung. Titel ansehen und unverbindlich vormerken; Preis und Zustand werden vor Einigung geprüft.",
+      "url": "https://marioik98.github.io/xbox-game-vault/oeffentlich/plattform/playstation-5.html"
+    },
+    {
+      "title": "Nintendo DS Spiel gebraucht | GAME VAULT",
+      "description": "Gebrauchtes Nintendo DS-Spiel aus privater Sammlung. Titel ansehen und unverbindlich vormerken; Preis und Zustand werden vor Einigung geprüft.",
+      "url": "https://marioik98.github.io/xbox-game-vault/oeffentlich/plattform/nintendo-ds.html"
+    },
+    {
+      "title": "PC Spiel gebraucht | GAME VAULT",
+      "description": "Gebrauchtes PC-Spiel aus privater Sammlung. Titel ansehen und unverbindlich vormerken; Preis und Zustand werden vor Einigung geprüft.",
+      "url": "https://marioik98.github.io/xbox-game-vault/oeffentlich/plattform/pc.html"
     }
   ]
 }
