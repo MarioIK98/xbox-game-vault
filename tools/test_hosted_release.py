@@ -47,6 +47,17 @@ def main():
   else:ck('Symlinked output directory rejected',False)
   ck('Symlink target preserved',sentinel.read_text()=='untouched')
   DIST.unlink()
+ # A positive production-path fixture verifies portability without publishing or changing approvals.
+ from unittest.mock import patch
+ with patch('build_hosted_release.approved_production',return_value=None):
+  production=build('production','https://gamevault.example/',DIST)
+ ck('Test fixture builds production-shaped file set',production['production_ready'] and len(production['files'])==26)
+ check_pages=('index.html','oeffentlich/index.html','oeffentlich/teilen.html','oeffentlich/plattform/xbox-360.html','sitemap.xml','oeffentlich/reichweite/links.json')
+ ck('Authorized fixture rewrites all public origins',all('https://marioik98.github.io/xbox-game-vault/' not in (DIST/x).read_text() for x in check_pages))
+ ck('Authorized fixture sets the new canonical', '<link rel="canonical" href="https://gamevault.example/oeffentlich/"' in (DIST/'oeffentlich/index.html').read_text())
+ ck('Authorized fixture does not add preview noindex', 'content="noindex,nofollow"' not in (DIST/'oeffentlich/index.html').read_text())
+ ck('Authorized fixture refreshes CSP hashes', 'GV_SECURITY_START' in (DIST/'oeffentlich/teilen.html').read_text())
+ ck('Authorized fixture writes site-root robots', 'Sitemap: https://gamevault.example/sitemap.xml' in (DIST/'robots.txt').read_text())
  report=build('preview',None,DIST)
  ck('Build is explicitly a noindex preview',report['mode']=='preview' and not report['indexable'] and not report['production_ready'])
  expected={*ROOT_FILES,*('oeffentlich/'+name for name in PUBLIC_FILES),'robots.txt','build-manifest.json'}
