@@ -1,7 +1,7 @@
 name: Game Vault quality and discovery
 on:
   push:
-    branches: [main, fix/reach-security-20261028]
+    branches: [main, fix/reach-security-20261028, feat/portable-secure-hosting-20261028]
   pull_request:
     branches: [main]
   workflow_dispatch:
@@ -37,6 +37,12 @@ jobs:
         run: python tools/test_security.py --out verification/security
       - name: Verify sharing controls and honest failure messages
         run: python tools/test_sharing_ui.py --out verification/sharing-ui
+      - name: Validate allowlisted and non-indexed hosting preview
+        run: |
+          python tools/test_hosted_release.py
+          cp dist/test-report.json verification/hosting-preview.json
+      - name: Real HTTP/browser regression for the filtered static release
+        run: python tools/test_game_vault.py --root dist --out verification/hosted-browser
       - name: Generate material for approved sharing channels; do not send
         run: python tools/prepare_security_release.py --bundle-out verification/sharing
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
