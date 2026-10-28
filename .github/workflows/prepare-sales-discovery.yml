@@ -1,0 +1,40 @@
+name: Prepare GAME VAULT sales discovery expansion
+on:
+  push:
+    branches: [feat/sales-discovery-v2-20261028]
+permissions:
+  contents: write
+concurrency:
+  group: game-vault-sales-discovery-prep
+  cancel-in-progress: false
+jobs:
+  prepare:
+    if: github.repository == 'MarioIK98/xbox-game-vault' && github.ref == 'refs/heads/feat/sales-discovery-v2-20261028'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13'
+      - name: Generate buyer-focused pages from verified catalogue
+        run: |
+          python tools/build_sales_accelerator.py --apply
+          python tools/build_sales_accelerator.py
+      - name: Refresh CSP and opt-in sharing assets
+        run: python tools/prepare_security_release.py
+      - name: Verify generated discovery pages and immutable catalogue
+        run: |
+          python tools/check_sales_accelerator.py --reference 549e13cc3d273373d445cf6e6489f14d6c817ebb --out verification/sales-discovery.json
+          python tools/prepare_security_release.py --check
+          python tools/check_brand.py
+          git diff --check
+      - name: Save tested generated public files on review branch
+        run: |
+          git add -- sitemap.xml oeffentlich
+          if ! git diff --cached --quiet; then
+            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Regenerate validated sales discovery pages after JSON-LD correction'
+            git push origin HEAD:feat/sales-discovery-v2-20261028
+          fi
