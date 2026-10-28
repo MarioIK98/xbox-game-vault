@@ -11,64 +11,56 @@ concurrency:
   group: game-vault-quality-${{ github.event_name }}-${{ github.ref }}
   cancel-in-progress: false
 jobs:
-  prepare-hardening:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/fix/reach-security-20261028'
-    runs-on: ubuntu-24.04
-    timeout-minutes: 12
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
-        with:
-          python-version: '3.13'
-      - run: |
-          python -m pip install playwright==1.57.0
-          python -m playwright install --with-deps chromium
-      - run: python tools/prepare_security_release.py
-      - run: python tools/prepare_security_release.py --check
-      - run: python tools/check_search.py --reference 6435f5f73c5d73524d541a5bb131e1efc58c1c14 --out verification/search.json
-      - run: python tools/test_game_vault.py --out verification/browser
-      - run: python tools/test_security.py --out verification/security
-      - run: python tools/prepare_security_release.py --bundle-out verification/sharing
-      - name: Save only the tested public files on the isolated review branch
-        run: |
-          git add -- index.html oeffentlich
-          if ! git diff --cached --quiet; then
-            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Apply tested CSP, input bounds and opt-in sharing assets'
-            git push origin HEAD:fix/reach-security-20261028
-          fi
-          git rev-parse HEAD > verification/tested-commit.txt
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        if: always()
-        with:
-          name: game-vault-security-review
-          path: verification/
-          retention-days: 14
   verify:
-    if: github.ref != 'refs/heads/fix/reach-security-20261028' || github.event_name != 'push'
     runs-on: ubuntu-24.04
     timeout-minutes: 12
     steps:
-      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           persist-credentials: false
-      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: '3.13'
-      - run: |
+      - name: Install existing pinned browser-test toolchain
+        run: |
           python -m pip install playwright==1.57.0
           python -m playwright install --with-deps chromium
-      - run: python tools/prepare_security_release.py --check
-      - run: python tools/check_search.py --out verification/search.json
-      - run: python tools/test_game_vault.py --out verification/browser
-      - run: python tools/test_security.py --out verification/security
-      - run: python tools/prepare_security_release.py --bundle-out verification/sharing
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+      - name: Detect stale CSP hashes or public sharing files
+        run: python tools/prepare_security_release.py --check
+      - name: Check canonical pages and search metadata
+        run: python tools/check_search.py --out verification/search.json
+      - name: Buyer-flow, HTTP and offline regression tests
+        run: python tools/test_game_vault.py --out verification/browser
+      - name: Isolated browser security and input-validation tests
+        run: python tools/test_security.py --out verification/security
+      - name: Generate material for approved sharing channels; do not send
+        run: python tools/prepare_security_release.py --bundle-out verification/sharing
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
           name: game-vault-quality
+          path: verification/
+          retention-days: 14
+  live-discovery:
+    needs: verify
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.13'
+      - name: Read-only verification of exact public security and sharing files
+        run: python tools/verify_public_security.py --out verification/live-security.json
+      - name: Verify search metadata and notify only changed canonical URLs
+        run: python tools/check_search.py --live --notify-indexnow --changed-only --out verification/live-search.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: game-vault-live-discovery
           path: verification/
           retention-days: 14
