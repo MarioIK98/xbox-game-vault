@@ -59,7 +59,7 @@ def security_policy(text: str) -> str:
         "default-src 'none'", "base-uri 'none'", "object-src 'none'", "frame-src 'none'",
         "form-action 'none'", 'script-src ' + (' '.join(hashes) or "'none'"),
         "script-src-attr 'none'", "style-src 'self' 'unsafe-inline'", "img-src 'self' data:",
-        "font-src 'self'", "connect-src 'self'", "manifest-src 'self'",
+        "font-src 'self'", ("connect-src 'self' https://formspree.io" if re.search(r'<meta name="gv-inquiry-form" content="[a-z0-9]{8,20}"',text) else "connect-src 'self'"), "manifest-src 'self'",
         "worker-src 'self'", "media-src 'none'",
     ])
 
