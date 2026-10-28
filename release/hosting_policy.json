@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "project": "MarioIK98/xbox-game-vault",
+  "checked_on": "2026-10-28",
+  "release_intent": "existing_catalogue_maintenance",
+  "current_host": "github_pages",
+  "future_goal": "commercial_services_and_partner_advertising",
+  "commercial_hosting": {
+    "status": "NOT_APPROVED",
+    "provider": null,
+    "plan": null,
+    "account_access_verified": false,
+    "commercial_terms_verified": false,
+    "costs_approved_by_mario": false,
+    "evidence": []
+  },
+  "known_limits": {
+    "github_pages": "Not allowed as free hosting for online business, ecommerce or sites primarily facilitating commercial transactions. GitHub repository and development use are separate from Pages hosting.",
+    "vercel_hobby": "Restricted to personal non-commercial use; not a substitute for the intended business site."
+  },
+  "sources": [
+    "https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits",
+    "https://vercel.com/docs/limits/fair-use-guidelines"
+  ],
+  "connection_check": "Vercel get_git_deployment_context returned no accessible teams on 2026-10-28. No new account, paid plan or domain was created.",
+  "publication_rules": "No new advertiser, business service, paid deployment, domain change or migration is approved by this maintenance release. Passing maintenance is not a legal approval of existing hosting use."
+}
