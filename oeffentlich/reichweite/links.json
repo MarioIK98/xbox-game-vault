@@ -1,0 +1,57 @@
+{
+  "purpose": "Opt-in sharing material, not automatically distributed",
+  "automatic_sending": false,
+  "ranking_guarantee": false,
+  "items": [
+    {
+      "title": "Game Vault – gebrauchte Videospiele für Xbox, PlayStation & PSP",
+      "description": "Gebrauchte Videospiele aus Marios privater Sammlung: Xbox 360, PS2, PSP und weitere Plattformen. Titel entdecken, Merkliste erstellen und unverbindlich anfragen.",
+      "url": "https://marioik98.github.io/xbox-game-vault/oeffentlich/"
+    },
+    {
+      "title": "Game Vault – Spiele, Plattformen und Partner im Überblick",
+      "description": "Marios privater Spielekatalog: Xbox, PlayStation, PSP, Nintendo DS und PC. Alle Plattformen, Merkliste, Partnerbereich und Hinweise direkt erreichen.",
+      "url": "https://marioik98.github.io/xbox-game-vault/oeffentlich/uebersicht.html"
+    },
+    {
+      "title": "Nintendo-DS-Spiel im privaten Katalog | Game Vault",
+      "description": "Nintendo DS aus privater Sammlung: eine Katalogposition. Titel und Ausgaben ansehen, Auswahl merken und Preis nach Einzelprüfung anfragen.",
+      "url": "https://marioik98.github.io/xbox-game-vault/oeffentlich/plattform/nintendo-ds.html"
+    },
+    {
+      "title": "Original Xbox: gebrauchte Spiele | Game Vault",
+      "description": "Original Xbox aus privater Sammlung: 7 Katalogpositionen. Titel und Ausgaben ansehen, Auswahl merken und Preis nach Einzelprüfung anfragen.",
+      "url": "https://marioik98.github.io/xbox-game-vault/oeffentlich/plattform/original-xbox.html"
+    },
+    {
+      "title": "PC-Spiel aus privater Sammlung | Game Vault",
+      "description": "PC aus privater Sammlung: eine Katalogposition. Titel und Ausgaben ansehen, Auswahl merken und Preis nach Einzelprüfung anfragen.",
+      "url": "https://marioik98.github.io/xbox-game-vault/oeffentlich/plattform/pc.html"
+    },
+    {
+      "title": "PS2-Spiele aus privater Sammlung | Game Vault",
+      "description": "PlayStation 2 (PS2) aus privater Sammlung: 39 Katalogpositionen. Titel und Ausgaben ansehen, Auswahl merken und Preis nach Einzelprüfung anfragen.",
+      "url": "https://marioik98.github.io/xbox-game-vault/oeffentlich/plattform/playstation-2.html"
+    },
+    {
+      "title": "Gebrauchte PS4-Spiele im Katalog | Game Vault",
+      "description": "PlayStation 4 (PS4) aus privater Sammlung: 3 Katalogpositionen. Titel und Ausgaben ansehen, Auswahl merken und Preis nach Einzelprüfung anfragen.",
+      "url": "https://marioik98.github.io/xbox-game-vault/oeffentlich/plattform/playstation-4.html"
+    },
+    {
+      "title": "PS5-Spiel aus privater Sammlung | Game Vault",
+      "description": "PlayStation 5 (PS5) aus privater Sammlung: eine Katalogposition. Titel und Ausgaben ansehen, Auswahl merken und Preis nach Einzelprüfung anfragen.",
+      "url": "https://marioik98.github.io/xbox-game-vault/oeffentlich/plattform/playstation-5.html"
+    },
+    {
+      "title": "Gebrauchte PSP-Spiele entdecken | Game Vault",
+      "description": "PlayStation Portable (PSP) aus privater Sammlung: 37 Katalogpositionen. Titel und Ausgaben ansehen, Auswahl merken und Preis nach Einzelprüfung anfragen.",
+      "url": "https://marioik98.github.io/xbox-game-vault/oeffentlich/plattform/psp.html"
+    },
+    {
+      "title": "Gebrauchte Xbox-360-Spiele entdecken | Game Vault",
+      "description": "Xbox 360 aus privater Sammlung: 55 Katalogpositionen. Titel und Ausgaben ansehen, Auswahl merken und Preis nach Einzelprüfung anfragen.",
+      "url": "https://marioik98.github.io/xbox-game-vault/oeffentlich/plattform/xbox-360.html"
+    }
+  ]
+}
