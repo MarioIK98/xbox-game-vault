@@ -7,10 +7,19 @@ from playwright.sync_api import sync_playwright
 p=argparse.ArgumentParser();p.add_argument('--root',default='.');p.add_argument('--out',default='verification');p.add_argument('--dom-only',action='store_true');a=p.parse_args()
 root=Path(a.root).resolve();out=Path(a.out).resolve();out.mkdir(parents=True,exist_ok=True)
 html=(root/'oeffentlich/index.html').read_text();results=[];errors=[]
+# Keep current MWS object references in the existing test artifact; never create a second registry.
+project_root=Path(__file__).resolve().parents[1]
+agents=(project_root/'AGENTS.md').read_text(encoding='utf-8')
+expected_mws={'PROJECT_OBJECT_ID':'P-007','APPLICATION_OBJECT_ID':'A-004','ENGINEERING_WORKSPACE_ID':'E-004'}
+mws_ids={}
+for key in expected_mws:
+ match=re.search(r'(?m)^-\s*'+re.escape(key)+r':\s*(\S+)',agents)
+ mws_ids[key]=match.group(1) if match else None
 def check(name,condition,detail=''):
  results.append({'name':name,'status':'PASS' if condition else 'FAIL','detail':detail})
  if not condition:print('FAIL:',name,detail,flush=True)
 def skip(name,reason):results.append({'name':name,'status':'NOT_TESTED','detail':reason})
+check('Existing MWS 4.2 project identity',mws_ids==expected_mws,repr(mws_ids))
 counts={'Xbox 360':55,'Original Xbox':7,'PS2':39,'PSP':37,'PS4':3,'PS5':1,'Nintendo DS':1,'PC':1}
 server=None;temp=None
 if not a.dom_only:
@@ -128,6 +137,28 @@ with sync_playwright() as pw:
   for w in (320,390,1440):
    page.set_viewport_size({'width':w,'height':900});check('Overview layout '+str(w),page.evaluate('document.documentElement.scrollWidth<=innerWidth'))
   page.screenshot(path=str(out/'overview.png'))
+  # Simulated smartphone touch test; device acceptance remains a separate step.
+  mobile=browser.new_context(viewport={'width':390,'height':844},device_scale_factor=2,is_mobile=True,has_touch=True,accept_downloads=True)
+  try:
+   touch=mobile.new_page();touch.set_default_timeout(10000);touch_errors=[]
+   touch.on('pageerror',lambda error:touch_errors.append(str(error)))
+   if a.dom_only:touch.set_content(html)
+   else:touch.goto(base,wait_until='networkidle')
+   check('Mobile touch initial catalogue',touch.locator('[data-public-card]').count()==144)
+   touch.locator('#bundlePlatformGrid [data-bundle-platform="Xbox 360"]').tap()
+   touch.locator('#bundlePlatformGrid [data-bundle-platform="PS2"]').tap()
+   check('Mobile touch combines two whole platforms',touch.locator('#stickyCount').inner_text()=='94')
+   touch.locator('#openWishlistBuilder').tap()
+   check('Mobile touch modal preserves both platform selections',touch.locator('#wishlistDialog').evaluate('(d)=>d.open') and touch.locator('#wishlistItems button[data-remove]').count()==94)
+   touch.locator('#wishlistItems [data-remove-platform="Xbox 360"]').tap()
+   check('Mobile touch platform removal preserves PS2',touch.locator('#stickyCount').inner_text()=='39' and touch.locator('#wishlistItems button[data-remove]').count()==39)
+   touch.locator('#closeWishlist').tap()
+   touch.locator('#gameSearch').fill('resident')
+   check('Mobile touch searchable after modal close',touch.locator('[data-public-card]').count()>0 and not touch.locator('#wishlistDialog').evaluate('(d)=>d.open'))
+   check('Mobile viewport no horizontal overflow',touch.evaluate('document.documentElement.scrollWidth<=innerWidth'))
+   touch.screenshot(path=str(out/'mobile-touch.png'),full_page=True)
+   check('Mobile touch no JavaScript exceptions',not touch_errors,repr(touch_errors))
+  finally:mobile.close()
  except Exception as e:
   check('Test suite execution',False,repr(e))
  finally:
@@ -135,7 +166,7 @@ with sync_playwright() as pw:
   if server:server.shutdown()
   if temp:temp.cleanup()
 report={'scope':'LOCAL_DOM_ONLY' if a.dom_only else 'HTTP_BROWSER_AND_SERVICE_WORKER','browser':browser_version,'python':sys.version.split()[0],
- 'passed':sum(x['status']=='PASS' for x in results),'failed':sum(x['status']=='FAIL' for x in results),'not_tested':sum(x['status']=='NOT_TESTED' for x in results),'checks':results}
+ 'mws_object_ids':mws_ids,'passed':sum(x['status']=='PASS' for x in results),'failed':sum(x['status']=='FAIL' for x in results),'not_tested':sum(x['status']=='NOT_TESTED' for x in results),'checks':results}
 (out/'results.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
 print(json.dumps({k:v for k,v in report.items() if k!='checks'},ensure_ascii=False,indent=2))
 sys.exit(1 if report['failed'] else 0)
